@@ -1,0 +1,76 @@
+
+
+
+section.section-bg-white.home__news
+
+  -
+    newsItemsList = [
+      {
+        itemType: 'big',
+        imgUrl: 'img/home/news/news-item-img-1',
+        type: 'Аренда',
+        date: '20.05.2024',
+        title: 'Как метро влияет на стоимость аренды в Дубае?',
+        desc: 'Дубайский метрополитен ожидает масштабное расширение: Управление по дорогам и транспорту эмирата пригласило подрядчиков проявить интерес к строительству новой линии.',
+      },
+      {
+        itemType: 'small',
+        type: 'Недвижимость',
+        date: '20.05.2024',
+        title: 'Как выделить свой объект на рынке недвижимости Дубая?',
+      },
+      {
+        itemType: 'small',
+        type: 'Деньги',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Деньги',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-3',
+        type: 'Развитие',
+        date: '20.05.2024',
+        title: 'Генеральный план развития Дубая 2040',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Капитал',
+        date: '20.05.2024',
+        title: 'Твердые активы - сохранность капитала и доходность в валюте',
+      },
+    ]
+
+  .container
+    h2.title.title-big.title-section.news__title Блог и новости
+    .news__wrapper
+      .news__list
+        each item in newsItemsList
+          div(class=['news__item', `news__item--${item.itemType}`]).element-animation
+            if item.imgUrl
+              +lazyImage({
+                imageSrc: item.imgUrl,
+                type: 'background',
+                classes: 'w-100 ratio news__item-bg',
+                imageClasses: 'w-100 h-100',
+              })
+            .news__item-top
+              span.news__item-top-type #{item.type}
+              span.news__item-top-date #{item.date}
+            .news__item-content
+              h3.news__item-title #{item.title}
+              if item.desc
+                p.news__item-desc #{item.desc}
+            .news__item-time
+              +icon('book')
+              span 5 минут
+    .button-wrapper.element-animation
+      a(href="#" class="button button-black")
+        span Все новости

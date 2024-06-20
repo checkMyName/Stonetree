@@ -1,0 +1,20 @@
+extends ../../layout/modal
+
+block modalVariables
+  - modalId = 'js-brochure-modal'
+  - modalClasses = 'modal--brochure'
+
+block modalContent
+  button(
+    class=['modal-close', 'ms-auto d-flex align-items-center']
+    type='button'
+    data-bs-dismiss='modal'
+    aria-label='Закрыть'
+  )
+    +icon('close')
+
+  .modal__brochure
+    h2.title Ваша брошюра
+
+    a(href="#" class="button button-black")
+      span Отправить

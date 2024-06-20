@@ -1,0 +1,45 @@
+@import 'base/root';
+@import 'base/reboot';
+
+@import 'components/typography';
+@import 'components/general';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/form/group';
+@import 'components/form/field';
+@import 'components/form/radio-and-checkbox';
+@import 'components/form/validation';
+@import 'components/lazy';
+@import 'components/modal';
+@import 'components/buttons';
+@import 'components/toast';
+@import 'components/dropdown';
+@import 'components/breadcrumbs';
+
+@import 'pages/home/intro';
+@import 'pages/home/information';
+@import 'pages/home/catalog';
+@import 'pages/home/quiz';
+@import 'pages/home/additional';
+@import 'pages/home/services';
+@import 'pages/home/news';
+@import 'pages/home/managers';
+@import 'pages/home/consultation';
+
+@import 'pages/card/intro';
+@import 'pages/card/details';
+@import 'pages/card/layouts';
+@import 'pages/card/about';
+@import 'pages/card/advantages';
+@import 'pages/card/gallery';
+@import 'pages/card/consultation';
+@import 'pages/card/locations';
+@import 'pages/card/catalog';
+
+@import 'pages/news/news';
+
+@import 'pages/news/news-card';
+
+@import 'pages/team/team';
+
+

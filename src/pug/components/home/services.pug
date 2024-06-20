@@ -1,0 +1,40 @@
+
+-
+  servicesList = [
+    {
+      icon: 'buildings',
+      title: 'Управление недвижимостью',
+      desc: 'Индивидуальная стратегия управления для каждого инвестора, подготовка и управление объектом под ключ, прозрачная система контроля отчетности',
+      buttonText: 'На сайт',
+      href: '#',
+    },
+    {
+      icon: 'warehouse',
+      title: 'Интерьер и сервис',
+      desc: 'Комплексная подготовка недвижимости к сдаче в аренду или продаже с целью увеличения доходности объекта, а также к самостоятельному проживанию клиента',
+      buttonText: 'На сайт',
+      href: '#',
+    },
+    {
+      icon: 'scroll',
+      title: 'Юридические услуги',
+      desc: 'Предоставление юридической и бухгалтерской поддержки, помощь с релокацией, поддержка в продвижении и поиске новых возможностей развития бизнеса',
+      buttonText: 'Записаться',
+      href: '#',
+    },
+  ]
+
+section.section-bg-more-white.home__services#services
+  .container
+    h2.title.title-big.title-section.services__title Дополнительные услуги
+    .services__list
+      .row.gy-4.gy-lg-0.gx-4
+        each item in servicesList
+          .col-12.col-lg-4.element-animation
+            .services__item
+              .services__item-icon
+                +icon(item.icon)
+              h3.services__item-title #{item.title}
+              p.services__item-desc #{item.desc}
+              a(href=item.href class="button button-black")
+                span #{item.buttonText}

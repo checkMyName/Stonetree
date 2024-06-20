@@ -1,0 +1,66 @@
+header(class=['header', 'js-header'])
+
+	-
+		nav = [
+			{
+				name: 'Каталог',
+				href: '#catalog'
+			},
+			{
+				name: 'Подобрать недвижимость',
+				href: '#quiz'
+			},
+			{
+				name: 'Дополнительные услуги',
+				href: '#services'
+			},
+			{
+				name: 'Команда',
+				href: '#managers'
+			}
+		]
+
+	.header__wrapper
+		.container
+			.row.justify-content-lg-between.align-items-center
+				.col-auto
+					a(href="#").header__logo
+						+icon('logo')
+						//- img(src="img/logo.png" alt="logo" class="header__logo-1")
+						//- img(src="img/logo-2.png" alt="logo" class="header__logo-2")
+				.col-auto.d-none.d-lg-block
+					nav.header__nav
+						.row.gx-3.gx-xl-5
+							each link in nav
+								.col-auto
+									a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
+				.col-auto.ms-auto.ms-lg-0
+					.row.gx-3.gx-xl-5.align-items-center
+						.col-auto
+							a(href="tel:+72322344454" class="header__phone") +7 (232) 234-44-54
+						.col-auto.d-none.d-lg-block
+							.header__langswitcher
+								.header__langswitcher-item
+									input(id="langswitcher-ru" type="radio" name="langswitcher" checked="true")
+									label(for="langswitcher-ru") Ru
+								.header__langswitcher-item
+									input(id="langswitcher-ru" type="radio" name="langswitcher")
+									label(for="langswitcher-ru") En
+				.col-auto.d-block.d-lg-none
+					button(type='button' class="header__burger").js-menu-button
+						//- +icon('menu', '', '24px', '24px')
+						span
+
+	.header__menu
+		.container
+			each link in nav
+				a(href=link.href data-anchor=link.href class="link-highlight header__menu-link").js-menu-link #{link.name}
+			.row
+				.col-auto
+					.header__langswitcher
+						.header__langswitcher-item
+							input(id="langswitcher-ru" type="radio" name="langswitcher" checked)
+							label(for="langswitcher-ru") Ru
+						.header__langswitcher-item
+							input(id="langswitcher-ru" type="radio" name="langswitcher")
+							label(for="langswitcher-ru") En

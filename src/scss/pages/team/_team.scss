@@ -1,0 +1,136 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.page--team {
+  .header {
+    .header__wrapper {
+      background-color: transparent;
+      border-radius: 0px 0px 24px 24px;
+
+      .header__logo {
+        .svg-icon {
+          fill: get($colors, black);
+        }
+      }
+
+      .header__burger {
+        &::before,
+        &::after,
+        span {
+          background-color: get($colors, black);
+        }
+      }
+
+      .header__content {
+        background-color: get($colors, white);
+      }
+
+      .header__nav-link {
+        color: get($colors, black);
+
+        &.link-highlight {
+          &::after {
+            background-color: get($colors, black);
+          }
+        }
+      }
+
+      .header__phone {
+        color: get($colors, black);
+      }
+
+      .header__langswitcher {
+        background-color: get($colors, black);
+
+        &-item {
+          input {
+            &:checked + label {
+              color: get($colors, white);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.team__consultation {
+  padding-top: 135px;
+
+  .consultation__wrapper {
+    background: #ffffff;
+  }
+
+  .consultation__block {
+    background: #f7f7f7;
+  }
+
+  .consultation__content {
+    @include media-breakpoint-down(lg) {
+      p {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  
+
+  .team {
+    &__title {
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 100%;
+      letter-spacing: -0.055em;
+      color: #191919;
+      margin-bottom: 40px;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.team__departament {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include media-breakpoint-up(lg) {
+    .swiper {
+      overflow: visible;
+
+      &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      &-slide {
+        // margin-bottom: 20px;
+        height: auto;
+      }
+    }
+  }
+
+  .title {
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .controlls-item {
+    width: auto;
+    // font-weight: 500;
+
+    &:not(.is-active) {
+      background-color: #FCFCFC;
+      
+    }
+  }
+
+  .swiper-slide {
+    width: fit-content;
+  }
+}

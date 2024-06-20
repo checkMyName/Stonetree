@@ -1,0 +1,45 @@
+
+-
+  managersList = [
+    {
+      photoUrl: 'img/home/managers/manager-photo-1',
+      name: 'Муравьев Евгений',
+      post: 'CEO'
+    },
+    {
+      photoUrl: 'img/home/managers/manager-photo-2',
+      name: 'Кудрявцева Ярослава',
+      post: 'Менеджер по продажам'
+    },
+    {
+      photoUrl: 'img/home/managers/manager-photo-3',
+      name: 'Кудрявцева Ярослава',
+      post: 'Консультант'
+    },
+    {
+      photoUrl: 'img/home/managers/manager-photo-4',
+      name: 'Сидоров Андрей',
+      post: 'Менеджер по работе с клиентами'
+    },
+  ]
+
+section.section-bg-white.home__managers#managers
+  .container
+    h2.title.title-big.title-section.managers__title Менеджмент
+    .managers__list
+      .row.g-3.g-lg-4
+        each person in managersList
+          .col-12.col-lg-6.col-xl-3.element-animation
+            .managers__item
+              +lazyImage({
+                imageSrc: person.photoUrl,
+                type: 'background',
+                classes: 'w-100 ratio ratio-1x1 managers__item-photo',
+                imageClasses: 'w-100 h-100',
+              })
+              .managers__item-content
+                h3.managers__item-name #{person.name}
+                p.managers__item-post #{person.post}
+    .button-wrapper.element-animation
+      a(href="#" class="button button-black")
+        span Вся команда

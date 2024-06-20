@@ -1,0 +1,181 @@
+extends ../layout/main
+
+block mainVariables
+  - pageTitle = 'Команда';
+  - pageRootClass = 'team';
+  - pageId = 'js-page-team'
+  - activeNavIndex = 0
+
+block mainContent
+
+  -
+    teamList = [
+      {
+        photoUrl: 'img/home/managers/manager-photo-1',
+        name: 'Муравьев Евгений',
+        post: 'CEO'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-2',
+        name: 'Кудрявцева Ярослава',
+        post: 'Менеджер по продажам'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-3',
+        name: 'Кудрявцева Ярослава',
+        post: 'Консультант'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-4',
+        name: 'Сидоров Андрей',
+        post: 'Менеджер по работе с клиентами'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-1',
+        name: 'Муравьев Евгений',
+        post: 'CEO'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-2',
+        name: 'Кудрявцева Ярослава',
+        post: 'Менеджер по продажам'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-3',
+        name: 'Кудрявцева Ярослава',
+        post: 'Консультант'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-4',
+        name: 'Сидоров Андрей',
+        post: 'Менеджер по работе с клиентами'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-1',
+        name: 'Муравьев Евгений',
+        post: 'CEO'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-2',
+        name: 'Кудрявцева Ярослава',
+        post: 'Менеджер по продажам'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-3',
+        name: 'Кудрявцева Ярослава',
+        post: 'Консультант'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-4',
+        name: 'Сидоров Андрей',
+        post: 'Менеджер по работе с клиентами'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-1',
+        name: 'Муравьев Евгений',
+        post: 'CEO'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-2',
+        name: 'Кудрявцева Ярослава',
+        post: 'Менеджер по продажам'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-3',
+        name: 'Кудрявцева Ярослава',
+        post: 'Консультант'
+      },
+      {
+        photoUrl: 'img/home/managers/manager-photo-4',
+        name: 'Сидоров Андрей',
+        post: 'Менеджер по работе с клиентами'
+      },
+    ]
+    
+    controllslist = [
+      {
+        name: 'Менеджмент',
+        isActive: true,
+      },
+      {
+        name: 'Финансы'
+      },
+      {
+        name: 'Маркетинг'
+      },
+      {
+        name: 'Продажи'
+      },
+      {
+        name: 'Работа с собственниками'
+      },
+      {
+        name: 'Управление недвижимостью'
+      },
+      {
+        name: 'Ремонт и мебилировка'
+      },
+      {
+        name: 'Консалтинг'
+      },
+      {
+        name: 'HR департамент'
+      },
+    ]
+
+  section.section-bg-white.card__consultation.team__consultation
+    .container
+      h1.team__title Наша команда
+      .consultation__wrapper.element-animation
+        .row.gy-2.gy-lg-0.gx-4
+          .col-12.col-lg-6
+            +lazyImage({
+              imageSrc: 'img/team/team-consultation-img',
+              type: 'background',
+              classes: 'w-100 ratio consultation__image',
+              imageClasses: 'w-100 h-100',
+            })
+          .col-12.col-lg-6
+            .consultation__block
+              .consultation__content
+                h2 STONETREE HOLDING in 2025
+                p Инвестиционная холдинговая компания, базирующаяся в Дубае, ОАЭ. Как многие инвестиционные структуры в регионе, компания может сосредотачиваться на различных секторах, включая недвижимость, технологии, розничную торговлю, энергоносители и др. Информация о частных компаниях часто ограничена и варьируется в зависимости от их публичной или непубличной натуры.
+              a(href="#" class="button button-black")
+                span Вакансии
+  
+  section.section-bg-white.home__managers.team__departament
+    .container
+      h2.title.title-big.title-section Департаменты
+      .controlls.element-animation.js-controlls
+        .swiper.js-team-controlls-slider
+          .swiper-wrapper
+            each item, i in controllslist
+              .swiper-slide
+                div(class=['controlls-item', item.isActive ? 'is-active' : null] data-tab-index=i).js-controlls-item
+                  span #{item.name}
+      .managers__list
+        .row.g-3.g-lg-4
+          each person in teamList
+            .col-12.col-lg-6.col-xl-3.element-animation
+              .managers__item
+                +lazyImage({
+                  imageSrc: person.photoUrl,
+                  type: 'background',
+                  classes: 'w-100 ratio ratio-1x1 managers__item-photo',
+                  imageClasses: 'w-100 h-100',
+                })
+                .managers__item-content
+                  h3.managers__item-name #{person.name}
+                  p.managers__item-post #{person.post}
+      
+      .pagination.element-animation
+        .pagination__list
+          a.pagination__button.pagination__button-prev
+            +icon('arrow-down')
+          .pagination__content
+            each i in [1, 2, 3]
+              span(class=i==1 ? 'is-active': null).pagination__item #{i}
+          a.pagination__button.pagination__button-next
+            +icon('arrow-down')
+  
+  include ../components/home/consultation

@@ -1,0 +1,50 @@
+section.section-bg-white.card__layouts
+
+  -
+    layoutsSliderElements = [
+      {
+        title: 'Студии',
+        desc: 'Разработка индивидуальной инвестиционной стратегии с целью получения высокого ROI и капитализации объекта',
+        href: '#',
+      },
+      {
+        title: '1-комнатные',
+        desc: 'Разработка индивидуальной инвестиционной стратегии с целью получения высокого ROI и капитализации объекта',
+        href: '#',
+      },
+      {
+        title: '2-комнатные',
+        desc: 'Разработка индивидуальной инвестиционной стратегии с целью получения высокого ROI и капитализации объекта',
+        href: '#',
+      },
+    ]
+
+  .container
+    h2.title.title-big.title-section.element-animation Планировки
+    .swiper.slider.layouts__slider.element-animation.js-card-layouts-slider
+      .swiper-wrapper
+        each item, i in layoutsSliderElements
+          .swiper-slide
+            .layouts__slider-slide
+              h3.layouts__slider-slide-title #{item.title}
+              .catalog__item-info-table-row.js-catalog-table-row
+                p
+                  span от 
+                  span.js-catalog-table-row-number 35,7 м#[sup 2]
+                .catalog__item-info-table-sqrt
+                  .form__group(data-select-dropdown)
+                    .form__dropdown
+                      button.form__dropdown-button(type='button' data-bs-toggle='dropdown' aria-expanded='false' data-select-dropdown-button data-value='meters')
+                        div(data-select-dropdown-selected) м#[sup 2]
+                        +icon('arrow-down')
+                      .form__dropdown-dropdown.dropdown-menu(data-select-dropdown-menu style)
+                        ul.form__dropdown-list
+                          li.form__dropdown-list-item.is-selected.p-1(data-value='meters' data-number='35,7 м<sup>2</sup>' data-select-dropdown-option) м#[sup 2]
+                          li.form__dropdown-list-item.p-2(data-value='sqarfeet' data-number='726 sq.ft<sup>2</sup>' data-select-dropdown-option) sq.ft
+                    input(hidden type='text' data-select-dropdown-output)
+              p.catalog__item-info-table-furniture Меблировка: нет
+              a(href="#" class="button button-black")
+                span Узнать цену 
+      
+      .slider__pagination
+        .slider__pagination-bullet

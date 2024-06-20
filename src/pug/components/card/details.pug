@@ -1,0 +1,53 @@
+section.section-bg-white.home__information.card__details
+
+  -
+    cardNumbersList = [
+      {
+        number: '777 777',
+        text: 'стартовая цена'
+      },
+      {
+        number: '67,4 м<sup>2</sup>',
+        text: 'минимальная площадь'
+      },
+      {
+        number: '1-5',
+        text: 'количество спален'
+      },
+      {
+        number: '30%',
+        text: 'первоначальный взнос'
+      },
+      {
+        number: '2026',
+        text: 'сдача объекта'
+      },
+      {
+        number: '5,8%',
+        text: 'ROI оценка инвестиций'
+      },
+    ]
+
+  .container
+    .details__wrapper
+      .details__top.element-animation
+        .row.gy-4.gy-lg-0.justify-content-lg-between.align-items-center
+          .col-6.col-lg-3.order-1.order-lg-1
+            h2.title.title-big.mb-0 Подробности
+          .col-auto.col-lg-3.order-3.order-lg-2
+            .details__top-item
+              span Локация
+              p Dubai Science Park
+          .col-auto.col-lg-3.order-4.order-lg-3
+            .details__top-item
+              span Застройщик
+              p Binghatti
+          .col-6.col-lg-3.col-xl-auto.order-2.order-lg-4
+            .ms-auto.details__top-logo
+              img(src="img/card/card-logo.png" alt="logo")
+      .information__numbers
+        each item in cardNumbersList
+          .information__numbers-item.element-animation
+            +icon('angle', 'information__numbers-item-angle')
+            h2.information__numbers-item-title !{item.number}
+            p.mb-0.information__numbers-item-text #{item.text}

@@ -1,0 +1,67 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.card__consultation {
+  .consultation {
+    &__wrapper {
+      background: #e5e5e5;
+      padding: 12px;
+      border-radius: 20px;
+    }
+
+    &__image {
+      --page-aspect-ratio: calc(4 / 6 * 100%);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    &__block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      background: #fcfcfc;
+      border-radius: 20px;
+      height: 100%;
+
+      @include media-breakpoint-down(lg) {
+        padding: 20px;
+        // margin-top: 8px;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 100%;
+        letter-spacing: -0.055em;
+        color: #191919;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 20px;
+        }
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 125%;
+        letter-spacing: -0.065em;
+        color: #191919;
+        margin-top: 16px;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 16px;
+          margin-bottom: 80px;
+        }
+      }
+
+      .button {
+        
+        @include media-breakpoint-up(lg) {
+          max-width: 285px;
+
+        }
+      }
+    }
+  }
+}

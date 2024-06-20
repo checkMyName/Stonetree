@@ -1,0 +1,52 @@
+section.section-bg-more-white.home__additional
+  .container
+    h2.title.title-big.title-section.additional__title Вторичная недвижимость
+    p.additional__subtitle Наши кейсы
+    .swiper.additional__slider.js-additional-slider.element-animation
+      .swiper-wrapper
+        each i in [1, 2, 3, 4]
+          .swiper-slide.additional__slider-slide
+            .row.gx-3
+              .col-12.col-lg
+                +lazyImage({
+                  imageSrc: 'img/home/additional-slider-img',
+                  type: 'background',
+                  classes: 'w-100 h-100 ratio additional__slider-slide-img',
+                  imageClasses: 'w-100 h-100',
+                })
+              .col-12.col-lg-auto
+                .additional__slider-slide-content
+                  h3.additional__slider-slide-title Concorde Tower
+                  .additional__slider-slide-tags
+                    p Студия
+                    p 46,92 м2
+                  .additional__slider-slide-table
+                    .additional__slider-slide-row
+                      p Ванные комнаты
+                      p 1
+                    .additional__slider-slide-row
+                      p ROI с аренды
+                      p 9-10%
+                    .additional__slider-slide-row
+                      p Год покупки
+                      p 2022
+                    .additional__slider-slide-row
+                      p Купили за
+                      p 495 000 AED
+                    .additional__slider-slide-row
+                      p Сейчас можно продать
+                      p 750 000 AED
+                    .additional__slider-slide-row
+                      p Капитализация
+                      p 51,5%
+      .slider__pagination
+        .slider__pagination-bullet
+      .slider__navigation-button.slider__navigation-button-prev
+        +icon('arrow-down')
+      .slider__navigation-button.slider__navigation-button-next
+        +icon('arrow-down')
+    .button-wrapper.element-animation
+      a(href="#" class="button button-black")
+        span Подробнее
+
+

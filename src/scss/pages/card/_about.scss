@@ -1,0 +1,74 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.card__about {
+  padding-bottom: 100px;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 80px;
+  }
+  
+  .about {
+    &__wrapper {
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      // width: 540px;
+
+      .button {
+        @include media-breakpoint-up(lg) {
+          width: 200px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__desc {
+      p {
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.05em;
+        color: #444444;
+
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        @include media-breakpoint-down(xxl) {
+          font-size: 14px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          margin: 20px 0;
+          font-size: 16px;
+        }
+      }
+    }
+
+    &__img {
+      // width: 660px;
+      border-radius: 24px;
+      overflow: hidden;
+
+      --page-aspect-ratio: calc(10 / 16 * 100%);
+    }
+  }
+}

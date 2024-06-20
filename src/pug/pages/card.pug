@@ -1,0 +1,65 @@
+extends ../layout/main
+
+block mainVariables
+	- pageTitle = 'Карточка объекта';
+	- pageRootClass = 'card';
+	- pageId = 'js-page-card'
+	- activeNavIndex = 0
+
+block mainContent
+	include ../components/card/intro
+	include ../components/card/details
+	include ../components/card/layouts
+	include ../components/card/about
+	include ../components/card/advantages
+	include ../components/card/gallery
+	include ../components/card/consultation
+	include ../components/card/locations
+	include ../components/card/anotherproducts
+	include ../components/home/news
+
+	section.section-bg-white.home__consultation
+		.container
+			.consultation__wrapper
+				+lazyImage({
+					imageSrc: 'img/home/consultation-bg',
+					type: 'background',
+					classes: 'w-100 h-100 consultation__bg',
+					imageClasses: 'w-100 h-100',
+				})
+				.consultation__content.element-animation
+					.row.justify-content-between
+						.col-12.col-lg-6.col-xl-auto
+							.consultation__block
+								h2.consultation__title Получите бесплатную консультацию
+								p.consultation__subtitle Оставьте свои контактные данные, чтобы получить консультацию
+						.col-12.col-lg-6.col-xl-auto
+							form.form__block
+								.row
+									.col-12
+										+field({
+											type: 'text',
+											placeholder: 'Имя',
+											classes: '',
+											validate: true
+										})
+									.col-12
+										+field({
+											type: 'phone',
+											placeholder: 'Телефон',
+											classes: 'js-phone-mask',
+											validate: true
+										})
+									.col-12
+										+field({
+											type: 'email',
+											placeholder: 'Почта',
+											classes: '',
+										})
+								.form__block-agreement
+									.checkbox
+										input(type="checkbox" name="agreement")
+										span
+										p.mb-0 Я даю согласие на обработку персональных данных в соответствии с #[a(href="#" class="text-danger") Политикой конфиденциальности]
+								a(href="#" class="button button-black")
+									span Отправить 

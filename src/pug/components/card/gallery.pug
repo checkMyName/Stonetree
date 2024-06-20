@@ -1,0 +1,121 @@
+section.section-bg-more-white.card__gallery.js-gallery
+  
+  -
+    gallerySliderInterierSlides = [
+      {
+        imgUrl: 'img/home/information/information-slider-img-1',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-2',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-3',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-4',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-1',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-2',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-3',
+      },
+      {
+        imgUrl: 'img/home/information/information-slider-img-4',
+      },
+    ]
+    
+    gallerySliderExterierSlides = [
+      {
+        imgUrl: 'img/home/home-quiz-bg',
+      },
+      {
+        imgUrl: 'img/home/home-bg',
+      },
+      {
+        imgUrl: 'img/home/home-quiz-bg',
+      },
+      {
+        imgUrl: 'img/home/home-bg',
+      },
+    ]
+  
+  .container
+    .gallery__wrapper
+      .gallery__top
+        h2.title.title-big Галерея
+        .gallery__slider-counter.d-block.d-lg-none
+          +icon('picture')
+          span.js-gallery-slider-counter 17
+      .controlls.element-animation.js-gallery-controlls
+        div(class=['controlls-item is-active'] data-tab-index=0).js-gallery-controlls-item
+          span Экстерьер
+        div(class=['controlls-item'] data-tab-index=1).js-gallery-controlls-item
+          span Интерьер
+      .gallery__tab.element-animation.js-gallery-tab
+        .gallery__tab-item.js-gallery-tab-item.is-current
+          .gallery__slider
+            .gallery__slider-inner
+              .gallery__slider-view
+                .swiper.js-gallery-slider
+                  .swiper-wrapper
+                    each slide in gallerySliderInterierSlides
+                      .swiper-slide
+                        .gallery__slider-item
+                          +lazyImage({
+                            imageSrc: slide.imgUrl,
+                            type: 'background',
+                            classes: 'w-100 ratio gallery__slider-item-img',
+                            imageClasses: 'w-100 h-100',
+                          })
+
+              .gallery__slider-thumb
+                .swiper.js-gallery-thumb.h-100
+                  .swiper-wrapper
+                    each slide in gallerySliderInterierSlides
+                      .swiper-slide
+                        .gallery__slider-thumb-item
+                          +lazyImage({
+                            imageSrc: slide.imgUrl,
+                            type: 'background',
+                            classes: 'w-100 ratio gallery__slider-thumb-item-img',
+                            imageClasses: 'w-100 h-100',
+                          })
+        
+        .gallery__tab-item.js-gallery-tab-item
+          .gallery__slider
+            .gallery__slider-inner
+              .gallery__slider-view
+                .swiper.js-gallery-slider
+                  .swiper-wrapper
+                    each slide in gallerySliderExterierSlides
+                      .swiper-slide
+                        .gallery__slider-item
+                          +lazyImage({
+                            imageSrc: slide.imgUrl,
+                            type: 'background',
+                            classes: 'w-100 ratio gallery__slider-item-img',
+                            imageClasses: 'w-100 h-100',
+                          })
+
+              .gallery__slider-thumb
+                .swiper.js-gallery-thumb.h-100
+                  .swiper-wrapper
+                    each slide in gallerySliderExterierSlides
+                      .swiper-slide
+                        .gallery__slider-thumb-item
+                          +lazyImage({
+                            imageSrc: slide.imgUrl,
+                            type: 'background',
+                            classes: 'w-100 ratio gallery__slider-thumb-item-img',
+                            imageClasses: 'w-100 h-100',
+                          })
+
+        .gallery__slider-counter.d-none.d-lg-block
+          +icon('picture')
+          span.js-gallery-slider-counter 17
+
+                

@@ -1,0 +1,114 @@
+
+-
+  informationNumbersList = [
+    {
+      number: 7,
+      text: 'лет опыта на рынке ОАЭ'
+    },
+    {
+      number: 450,
+      text: 'объектов в управлении'
+    },
+    {
+      number: 250,
+      text: 'млн долларов стоимость объектов'
+    },
+    {
+      number: 3200,
+      text: 'объектов продано'
+    },
+    {
+      number: 220,
+      text: 'инвесторов в пуле'
+    },
+    {
+      number: 150,
+      text: 'сотрудников в штате'
+    },
+  ]
+
+  informationSliderItems = [
+    {
+      imageUrl: 'img/home/information/information-slider-img-1',
+      title: 'Первичный рынок недвижимости',
+      subtitle: 'Ориентация на ликвидные объекты, а не на переоцененные',
+      list: [
+        'Сотрудничество с известными и крупными застройщиками',
+        'Гибкие условия рассрочки',
+        'Юридическая сопровождение сделки',
+      ],
+      href: '#',
+    },
+    {
+      imageUrl: 'img/home/information/information-slider-img-2',
+      title: 'Вторичный рынок недвижимости',
+      subtitle: 'Ориентация на ликвидные объекты, а не на переоцененные',
+      list: [
+        'Глубокий анализ и аналитика рынка, консалтинг',
+        'Получение резиденства и открытие банковского счета',
+        '«Второе брокерское мнение» - независимая экспертиза и оценка',
+      ],
+      href: '#',
+    },
+    {
+      imageUrl: 'img/home/information/information-slider-img-3',
+      title: 'Флиппинг',
+      subtitle: 'Покупка и реновация объекта для дальнейшей продажи с целью получения прибыли',
+      list: [
+        'Баланс между умеренными рисками и высокой доходностью',
+        'Увеличение доходности объекта на 20% к проекту',
+      ],
+      href: '#',
+    },
+    {
+      imageUrl: 'img/home/information/information-slider-img-4',
+      title: 'Дополнительные услуги',
+      subtitle: 'Специальные предложения для наших клиентов',
+      list: [
+        'Гражданство и паспорта других стран',
+        'Юридические услуги',
+      ],
+      href: '#',
+    },
+  ]
+
+section.section-bg-white.home__information
+  .container
+    .information__numbers
+      each item in informationNumbersList
+        .information__numbers-item.element-animation
+          +icon('angle', 'information__numbers-item-angle')
+          h2.information__numbers-item-title #{item.number}+
+          p.mb-0.information__numbers-item-text #{item.text}
+    .swiper.slider.information__slider.js-information-slider.element-animation
+      .swiper-wrapper
+        each slide in informationSliderItems
+          .swiper-slide.information__slider-slide
+            +lazyImage({
+              imageSrc: slide.imageUrl,
+              type: 'background',
+              classes: 'w-100 h-100 information__slider-bg',
+              imageClasses: 'w-100 h-100',
+            })
+            .information__slider-content
+              .information__slider-logo
+                img(src="img/home/information/slider-logo.png", alt="")
+              .information__slider-top
+                h2.information__slider-title #{slide.title}
+                p.information__slider-subtitle #{slide.subtitle}
+                ul.information__slider-list
+                  each item in slide.list
+                    li.information__slider-item #{item}
+              .information__slider-bottom
+                a(href=slide.href class="button button-primary")
+                  span Подробнее
+      .slider__pagination
+        .slider__pagination-bullet
+      .slider__navigation
+        .slider__navigation-button.slider__navigation-button-prev
+          +icon('arrow-down')
+        .slider__navigation-button.slider__navigation-button-next
+          +icon('arrow-down')
+
+
+

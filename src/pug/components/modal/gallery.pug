@@ -1,0 +1,48 @@
+extends ../../layout/modal
+
+block modalVariables
+  - modalId = 'js-gallery-modal'
+  - modalClasses = 'modal--gallery'
+
+block modalContent
+  button(
+    class=['modal-close', 'ms-auto d-flex align-items-center']
+    type='button'
+    data-bs-dismiss='modal'
+    aria-label='Закрыть'
+  )
+    +icon('close')
+
+  .gallery__modal
+    .swiper.slider.gallery__modal-slider.js-gallery-modal-slider
+      .swiper-wrapper.js-gallery-modal-slider-wrapper
+        .swiper-slide
+          .gallery__modal-slider-slide
+            +lazyImage({
+              imageSrc: 'img/home/home-quiz-bg',
+              type: 'background',
+              classes: 'w-100 ratio ratio-16x9',
+              imageClasses: 'w-100 h-100',
+            })
+        .swiper-slide
+          .gallery__modal-slider-slide
+            +lazyImage({
+              imageSrc: 'img/home/home-quiz-bg',
+              type: 'background',
+              classes: 'w-100 ratio ratio-16x9',
+              imageClasses: 'w-100 h-100',
+            })
+        .swiper-slide
+          .gallery__modal-slider-slide
+            +lazyImage({
+              imageSrc: 'img/home/home-quiz-bg',
+              type: 'background',
+              classes: 'w-100 ratio ratio-16x9',
+              imageClasses: 'w-100 h-100',
+            })
+
+    .swiper-pagination
+    .slider__navigation-button.slider__navigation-button-prev
+      +icon('arrow-down')
+    .slider__navigation-button.slider__navigation-button-next
+      +icon('arrow-down')

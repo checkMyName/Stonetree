@@ -1,0 +1,101 @@
+@import "../utilities/variables";
+
+.button {
+	display: inline-block;
+
+	span {
+		font-weight: 500;
+	}
+
+	&-wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
+
+		@include media-breakpoint-down(lg) {
+			margin-top: 24px;
+		}
+
+		.button {
+			width: 250px;
+
+			@include media-breakpoint-down(lg) {
+				width: 100%;
+			}
+		}
+	}
+
+	&-primary {
+		// @include transition;
+
+		transition: all .3s ease-in-out;
+
+		padding: 20px;
+		color: get($colors, black);
+		text-align: center;
+		font-weight: 500;
+		font-size: 16px;
+		// background-color: get($colors, white);
+		background: #fcfcfc;
+		backdrop-filter: blur(10px);
+		border-radius: 32px;
+		width: 200px;
+
+		&:hover {
+			border-radius: 16px;
+			background-color: #f0f0f0;
+		}
+
+		@include media-breakpoint-down(xl) {
+			padding: 14px;
+			width: 130px;
+		}
+	}
+
+	&-black {
+		// @include transition;
+		transition: all .3s ease-in-out;
+
+		color: get($colors, white);
+		padding: 20px;
+		text-align: center;
+		background: #191919;
+		border-radius: 40px;
+
+		&:hover {
+			border-radius: 16px;
+			// background-color: #f0f0f0;
+		}
+	}
+
+	&-outline {
+		// @include transition;
+		transition: all .3s ease-in-out;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 16px;
+		padding: 18px;
+		width: 100%;
+		color: get($colors, black);
+		border: 1px solid #AEAEAE;
+		border-radius: 40px;
+
+		&:hover {
+			color: get($colors, white);
+			background-color: get($colors, black);
+			border-color: get($colors, black);
+			border-radius: 16px;
+		}
+	}
+
+	&[type="submit"] {
+		position: relative;
+
+		.spinner-border {
+			position: absolute;
+			left: calc(50% - 10px);
+		}
+	}
+}

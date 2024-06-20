@@ -1,0 +1,44 @@
+
+-
+	footerSocials = [
+		"instagram",
+		"linkedin",
+		"youtube",
+		"telegram",
+		"tiktok",
+	]
+
+footer(class=['footer', 'js-footer'])
+	.container
+		.row
+			.col-12.col-lg-4.col-xl-auto
+				.footer__left
+					button(type="button" onClick="window.scrollTo({top: 0, behavior: 'smooth'})").footer__scrollup
+						.footer__scrollup-icon
+							+icon('arrow-up')
+						span Наверх
+					
+					.footer__info
+						.footer__info-part
+							h4.footer__label Адрес
+							p 304-Ibn Batuta Gate, Jebel Ali, Dubai, United Arab Emirates
+						.footer__info-part
+							h4.footer__label Социальные сети
+							.footer__socials
+								each icon in footerSocials
+									.footer__socials-icon
+										+icon(icon)
+								.footer__socials-icon
+										img(src="img/vc-ru.png", alt="")
+					
+					.footer__logo
+						+icon('logo')
+
+			.col-12.col-lg-8.col-xl-9.col-xxl-8.ms-auto
+				.footer__map
+					img(src="img/map.png", alt="map")
+
+			.col-12
+				.footer__bottom
+					a(href="#").footer__bottom-link Политика кофиденциальности
+					a(href="#").footer__bottom-link Условия пользования

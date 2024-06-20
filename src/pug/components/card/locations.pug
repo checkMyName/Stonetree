@@ -1,0 +1,60 @@
+section.section-bg-more-white.card__locations
+  
+  -
+    locationsList = [
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+        isCurrent: true,
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+      {
+        distance: '1.35',
+        name: 'Dubai Silicon Oasis',
+      },
+    ]
+  
+  .container
+    h2.title.title-big.title-section.element-animation Локации рядом
+    .locations__wrapper.element-animation
+      .locations__content
+        .locations__list.order-2.order-xl-1
+          each item in locationsList
+            div(class=["locations__item", item.isCurrent ? 'is-current' : null])
+              .locations__item-top
+                span Локация
+                span #{item.distance} км
+              p.locations__item-name #{item.name}
+        +lazyImage({
+          imageSrc: 'img/card/card-locations-img',
+          type: 'background',
+          classes: 'w-100 h-100 ratio ratio-3x4 order-1 order-xl-2 locations__image',
+          imageClasses: 'w-100 h-100',
+        })
+      .d-block.d-xl-none
+        a(href="#" class="button button-outline")
+          span Показать еще 
+

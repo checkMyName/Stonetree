@@ -1,0 +1,107 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.home__services {
+  padding-bottom: 100px;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 80px;
+  }
+
+  .services {
+    &__item {
+      transition: all 0.3s ease-in-out;
+
+      padding: 30px;
+      background: #f6f6f6;
+      border-radius: 24px;
+
+      @include media-breakpoint-down(lg) {
+        padding: 20px;
+      }
+
+      &:hover {
+        background: #191919;
+
+        .services__item {
+          &-icon {
+            .svg-icon {
+              stroke: get($colors, white);
+            }
+          }
+
+          &-title {
+            color: get($colors, white);
+          }
+
+          &-desc {
+            color: get($colors, white);
+          }
+        }
+
+        .button {
+          background: get($colors, white);
+          color: get($colors, black);
+        }
+      }
+
+      &-icon {
+        margin-bottom: 20px;
+
+        .svg-icon {
+          transition: all 0.3s ease-in-out;
+
+          width: 48px;
+          height: 48px;
+          stroke: get($colors, black);
+
+          @include media-breakpoint-down(lg) {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+
+      &-title {
+        transition: all 0.3s ease-in-out;
+
+        margin-bottom: 12px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: -0.055em;
+        color: #191919;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 20px;
+        }
+      }
+
+      &-desc {
+        transition: all 0.3s ease-in-out;
+
+        margin-bottom: 57px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.05em;
+        color: #686868;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 14px;
+          margin-bottom: 68px;
+        }
+      }
+
+      .button {
+        transition: all 0.3s ease-in-out;
+
+        width: 200px;
+
+        @include media-breakpoint-down(lg) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

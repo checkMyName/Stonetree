@@ -1,0 +1,18 @@
+section.section-bg-more-white.card__consultation
+  .container
+    .consultation__wrapper.element-animation
+      .row.gy-2.gy-lg-0.gx-4
+        .col-12.col-lg-6
+          +lazyImage({
+            imageSrc: 'img/card/card-consultation-img',
+            type: 'background',
+            classes: 'w-100 ratio consultation__image',
+            imageClasses: 'w-100 h-100',
+          })
+        .col-12.col-lg-6
+          .consultation__block
+            .consultation__content
+              h2 Получите бесплатную консультацию
+              p Оставьте свои контактные данные, чтобы получить консультацию
+            a(href="#" class="button button-black")
+              span Записаться 

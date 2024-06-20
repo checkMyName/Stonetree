@@ -1,0 +1,142 @@
+extends ../layout/main
+
+block mainVariables
+  - pageTitle = 'Новости';
+  - pageRootClass = 'news';
+  - pageId = 'js-page-news'
+  - activeNavIndex = 0
+
+block mainContent
+
+  -
+    controllslist = [
+      {
+        name: 'Все',
+        isActive: true,
+      },
+      {
+        name: 'Аренда'
+      },
+      {
+        name: 'Недвижимость'
+      },
+      {
+        name: 'Деньги'
+      },
+      {
+        name: 'Развитие'
+      },
+      {
+        name: 'Капитал'
+      },
+    ]
+
+    newsItemsList = [
+      {
+        itemType: 'big',
+        imgUrl: 'img/home/news/news-item-img-1',
+        type: 'Аренда',
+        date: '20.05.2024',
+        title: 'Как метро влияет на стоимость аренды в Дубае?',
+        desc: 'Дубайский метрополитен ожидает масштабное расширение: Управление по дорогам и транспорту эмирата пригласило подрядчиков проявить интерес к строительству новой линии.',
+      },
+      {
+        itemType: 'small',
+        type: 'Недвижимость',
+        date: '20.05.2024',
+        title: 'Как выделить свой объект на рынке недвижимости Дубая?',
+      },
+      {
+        itemType: 'small',
+        type: 'Деньги',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Деньги',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-3',
+        type: 'Развитие',
+        date: '20.05.2024',
+        title: 'Генеральный план развития Дубая 2040',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Капитал',
+        date: '20.05.2024',
+        title: 'Твердые активы - сохранность капитала и доходность в валюте',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Деньги',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-3',
+        type: 'Развитие',
+        date: '20.05.2024',
+        title: 'Генеральный план развития Дубая 2040',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Капитал',
+        date: '20.05.2024',
+        title: 'Твердые активы - сохранность капитала и доходность в валюте',
+      },
+    ]
+
+  section.section-bg-white.home__news.news__block
+    .container
+      h1.news__title Блог и новости
+      .controlls.element-animation.js-controlls
+        .swiper.js-news-controlls-slider
+          .swiper-wrapper
+            each item, i in controllslist
+              .swiper-slide
+                div(class=['controlls-item', item.isActive ? 'is-active' : null] data-tab-index=i).js-controlls-item
+                  span #{item.name}
+
+      .news__wrapper
+        .news__list
+          each item in newsItemsList
+            div(class=['news__item', `news__item--${item.itemType}`]).element-animation
+              if item.imgUrl
+                +lazyImage({
+                  imageSrc: item.imgUrl,
+                  type: 'background',
+                  classes: 'w-100 ratio news__item-bg',
+                  imageClasses: 'w-100 h-100',
+                })
+              .news__item-top
+                span.news__item-top-type #{item.type}
+                span.news__item-top-date #{item.date}
+              .news__item-content
+                h3.news__item-title #{item.title}
+                if item.desc
+                  p.news__item-desc #{item.desc}
+              .news__item-time
+                +icon('book')
+                span 5 минут
+      
+      .pagination.element-animation
+        .pagination__list
+          a.pagination__button.pagination__button-prev
+            +icon('arrow-down')
+          .pagination__content
+            each i in [1, 2, 3]
+              span(class=i==1 ? 'is-active': null).pagination__item #{i}
+          a.pagination__button.pagination__button-next
+            +icon('arrow-down')
+
+  include ../components/home/consultation

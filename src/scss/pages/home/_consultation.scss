@@ -1,0 +1,87 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.home__consultation {
+  position: relative;
+  padding-bottom: 150px;
+  // background-color: #f4f4f4;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 105px;
+  }
+
+  .consultation {
+    &__wrapper {
+      position: relative;
+    }
+
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+
+      &::after {
+        @include pseudo;
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+      }
+    }
+
+    &__content {
+      position: relative;
+      padding: 30px;
+
+      @include media-breakpoint-down(lg) {
+        padding: 20px;
+      }
+
+      .form__block {
+        @include media-breakpoint-down(xl) {
+          max-width: 100%;
+        }
+
+        @include media-breakpoint-down(lg) {
+          margin-top: 40px;
+        }
+      }
+    }
+
+    &__block {
+      max-width: 560px;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 100%;
+      letter-spacing: -0.055em;
+      color: #fcfcfc;
+      margin-bottom: 12px;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 28px;
+      }
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.065em;
+      color: #fcfcfc;
+      margin-bottom: 0;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import "../../utilities/variables";
+@import "../../utilities/mixins";
+@import "node_modules/bootstrap/scss/vendor/rfs";
+
+.card__advantages {
+  padding-bottom: 150px;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 105px;
+  }
+  
+  .advantages {
+    &__slider {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      
+      // .swiper-wrapper {
+        
+      //   @include media-breakpoint-down(lg) {
+      //     max-height: 365px;
+      //   }
+      // }
+      
+      &-item {
+        display: flex;
+        align-items: center;
+        // padding: 32px 24px;
+        height: 88px;
+        padding: 0 24px;
+        background: #fcfcfc;
+        border-radius: 20px;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 20px;
+          letter-spacing: -0.05em;
+          color: #191919;
+          margin-left: 16px;
+          margin-bottom: 0;
+        }
+      }
+
+      .slider__pagination {
+        @include media-breakpoint-up(xl) {
+          display: none;
+        }
+
+        @include media-breakpoint-down(xl) {
+          justify-content: center;
+          margin-top: 12px;
+
+          &-bullet {
+            background: rgba(0, 0, 0, 0.2);
+
+            &-active {
+              background: #191919;
+            }
+          }
+        }
+      }
+    }
+  }
+}

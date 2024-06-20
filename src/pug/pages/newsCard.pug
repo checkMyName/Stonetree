@@ -1,0 +1,146 @@
+extends ../layout/main
+
+block mainVariables
+  - pageTitle = 'Карточка новости';
+  - pageRootClass = 'news-card';
+  - pageId = 'js-page-news-card'
+  - activeNavIndex = 0
+
+block mainContent
+
+  -
+    newsItemsList = [
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-3',
+        type: 'Развитие',
+        date: '20.05.2024',
+        title: 'Сверхбогатые выбирают Дубай Почему?',
+      },
+      {
+        itemType: 'medium',
+        imgUrl: 'img/home/news/news-item-img-2',
+        type: 'Капитал',
+        date: '20.05.2024',
+        title: 'Генеральный план развития Дубая 2040',
+      },
+
+    ]
+
+  section.news-card__intro
+    .news-card__intro-bg
+      +lazyImage({
+        imageSrc: 'img/newscard/news-card-intro-bg',
+        type: 'background',
+        classes: 'w-100 h-100 news-card__intro-bg-img',
+        imageClasses: 'w-100 h-100',
+      })
+
+    .container
+      +breadcrumbs([
+        {
+          name: 'Главная',
+          href: 'home.html'
+        },
+        {
+          name: 'Блог и новости',
+          href: 'news.html'
+        },
+        {
+          name:'Как метро влияет на стоимость аренды в Дубае?'
+        }
+      ])
+
+    .container
+      .intro__wrapper
+        .intro__content
+          span.intro__tag Аренда
+          h1.intro__title Как метро влияет на стоимость аренды в Дубае?
+          p.intro__subtitle Дубайский метрополитен ожидает масштабное расширение: Управление по дорогам и транспорту эмирата пригласило подрядчиков проявить интерес к строительству новой линии.
+        .intro__controlls
+          .intro__controlls-item
+            .intro__controlls-item-icon
+              +icon('calendar')
+            span 20.04.24
+          .intro__controlls-item
+            .intro__controlls-item-icon
+              +icon('book-2')
+            span 5 минут
+          .share.js-share
+            .share__button.js-share-button
+              +icon('share')
+            .share__content.js-share-content
+              .share__content-list
+                a(href="#").share__content-item
+                  +icon('angled')
+                a(href="#").share__content-item
+                  +icon('whatsup-2')
+                a(href="#").share__content-item
+                  +icon('telegram')
+                a(href="#").share__content-item
+                  +icon('linkedin')
+
+  section.section-bg-white.news-card__article
+    .container
+      .row.justify-content-center
+        .col-12.col-lg-10
+          .article__wrapper
+            h2.article__title Метро влияет на цену аренды квартиры. Но не везде
+            p.article__p Метро — важный фактор при выборе объекта. Близость объекта к станции может повысить стоимость аренды на 30%. Например, в районе Al Furjan, который является динамично развивающимся жилым центром, арендаторы готовы переплачивать за близость к станции. Однако это справедливо не для всех локаций. В культовых районах, таких как Dubai Marina, станция метро не является определяющим фактором при аренде квартиры, а в районе Downtown разница составляет около 6%. Отчасти это объяснятся тем, что эти районы сами по себе являются местом притяжения, и имеют другие sales-поинты определяющие стоимость аренды: достопримечательности, автомобильные транспортные развязки, готовую инфраструктуру так далее.
+            .article__fact
+              p Дубайский метрополитен ожидает масштабное расширение: Управление по дорогам и транспорту эмирата пригласило подрядчиков проявить интерес к строительству новой линии.
+              p Как ожидается, «голубая» ветка получит 14 станций – как наземных, так и подземных. Она будет соединена с ныне действующими – «зеленой» и «красной», а ее протяженность составит 30 км.
+            +lazyImage({
+              imageSrc: 'img/newscard/news-card-article-img',
+              type: 'background',
+              classes: 'w-100 h-100 ratio article__img',
+              imageClasses: 'w-100 h-100',
+            })
+            p.article__p Загрузка объектов возле метро, в зависимости от района, более прогнозируема и стабильна. Еще один плюс, который нужно держать в уме, — это прирост стоимости объекта. Аналитика показывает, что капитализация объектов вблизи транспортных развязок растет быстрее, чем у недвижимости, которая находится на некотором отдалении от узлов общественного транспорта.
+            ul.article__list.article__list--dot
+              li
+                p Метро Дубая полностью автоматизировано и не требует машинистов.
+              li
+                p Есть вагоны третьего класса (Silver Class), второго класса (Gold Class) с большими местами, и отдельные "pink" секции для женщин и детей.
+              li
+                p Все станции оборудованы лифтами и эскалаторами для удобства пассажиров.
+            ul.article__list.article__list--number
+              li
+                p Красная линия: соединяет районы Рашидия и Экспо 2020, проходя через главные коммерческие и туристические районы.
+              li
+                p Зеленая линия: проходит через исторические и культурные районы города, соединяющие Этисалат и Крик.
+              li
+                p Существует план по расширению сети метро с появлением новых линий и станций.
+
+  section.section-bg-white.home__news.news-card__interesting
+    .container
+      .row.justify-content-center
+        .col-12.col-lg-10
+          h2.title.title-big.title-section Может быть интересно
+          .row.gy-3.gy-lg-0
+            each item in newsItemsList
+              .col-12.col-lg-6
+                div(class=['news__item', `news__item--${item.itemType}`]).element-animation
+                  if item.imgUrl
+                    +lazyImage({
+                      imageSrc: item.imgUrl,
+                      type: 'background',
+                      classes: 'w-100 ratio news__item-bg',
+                      imageClasses: 'w-100 h-100',
+                    })
+                  .news__item-top
+                    span.news__item-top-type #{item.type}
+                    span.news__item-top-date #{item.date}
+                  .news__item-content
+                    h3.news__item-title #{item.title}
+                  .news__item-time
+                    +icon('book')
+                    span 5 минут
+          .button-wrapper.element-animation
+            a(href="#" class="button button-black")
+              span Другие статьи
+
+
+
+
+  include ../components/home/consultation

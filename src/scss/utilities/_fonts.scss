@@ -1,0 +1,8 @@
+@import 'mixins';
+
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-Light', $weight: 300);
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-Regular', $weight: 400);
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-Medium', $weight: 500);
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-SemiBold', $weight: 600);
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-Bold', $weight: 700);
+@include font-face('NunitoSans', '../font/NunitoSans_10pt-Black', $weight: 900);

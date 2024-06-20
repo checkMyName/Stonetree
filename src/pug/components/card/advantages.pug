@@ -1,0 +1,67 @@
+section.section-bg-white.card__advantages
+  
+  -
+    advantagesList = [
+      {
+        name: 'Открытый бассейн',
+      },
+      {
+        name: 'Детская площадка',
+      },
+      {
+        name: 'Детский бассейн',
+      },
+      {
+        name: 'Тренажерный зал',
+      },
+      {
+        name: 'Открытая спортивная площадка',
+      },
+      {
+        name: 'СПА-салон',
+      },
+      {
+        name: 'BBQ-зона',
+      },
+      {
+        name: 'Зона коворкинга',
+      },
+      {
+        name: 'Крытая детская игровая зона',
+      },
+      {
+        name: 'Сауна',
+      },
+      {
+        name: 'Джакузи',
+      },
+      {
+        name: 'Зона для йоги',
+      },
+      {
+        name: 'Кинотеатр',
+      },
+      {
+        name: 'Баскетбольная площадка',
+      },
+      {
+        name: 'Теннисный корт',
+      },
+      {
+        name: 'Парковка',
+      },
+    ]
+
+  .container
+    h2.title.title-big.title-section Преимущества
+    .advantages__wrapper.element-animation
+      .swiper.slider.advantages__slider.js-advantages-slider
+        .swiper-wrapper
+          each slide, i in advantagesList
+            .swiper-slide
+              .advantages__slider-item
+                img(src=`img/card/advantages/advantages-icon-${i + 1}.svg`, alt="icon")
+                p #{slide.name}
+        
+        .slider__pagination
+          .slider__pagination-bullet
