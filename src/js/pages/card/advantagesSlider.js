@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import Component from '../../classes/Component';
-import { Grid, Pagination } from 'swiper/modules';
+import { Grid, Navigation, Pagination } from 'swiper/modules';
 
 const advantagesSliderSelector = '.js-advantages-slider';
 
@@ -11,7 +11,7 @@ export function advantagesSlider() {
     onCreate() { },
     onInit() {
       this.cardAdvantagesSlider = new Swiper(advantagesSliderSelector, {
-        modules: [Pagination, Grid],
+        modules: [Pagination, Navigation, Grid],
         // speed: 700,
         // spaceBetween: 20,
         
@@ -28,10 +28,10 @@ export function advantagesSlider() {
           768: {
             slidesPerView: 1,
             spaceBetween: 8,
-            // grid: {
-            //   fill: 'row',
-            //   rows: 6,
-            // }
+            grid: {
+              fill: 'row',
+              rows: 6,
+            }
           },
           992: {
             slidesPerView: 3,
@@ -49,6 +49,11 @@ export function advantagesSlider() {
               rows: 4,
             }
           }
+        },
+
+        navigation: {
+          nextEl: '.slider__navigation-button-next',
+          prevEl: '.slider__navigation-button-prev',
         },
 
         pagination: {

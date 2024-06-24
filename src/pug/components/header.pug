@@ -17,7 +17,19 @@ header(class=['header', 'js-header'])
 			{
 				name: 'Команда',
 				href: '#managers'
-			}
+			},
+			{
+				name: 'Карьера',
+				href: 'https://stonetree.peopleforce.io/careers'
+			},
+		]
+
+		headerSocials = [
+			"instagram",
+			"linkedin",
+			"youtube",
+			"telegram",
+			"tiktok",
 		]
 
 	.header__wrapper
@@ -25,12 +37,13 @@ header(class=['header', 'js-header'])
 			.row.justify-content-lg-between.align-items-center
 				.col-auto
 					a(href="#").header__logo
-						+icon('logo')
+						//- +icon('logo')
+						include ../components/logo
 						//- img(src="img/logo.png" alt="logo" class="header__logo-1")
 						//- img(src="img/logo-2.png" alt="logo" class="header__logo-2")
 				.col-auto.d-none.d-lg-block
 					nav.header__nav
-						.row.gx-3.gx-xl-5
+						.row.gx-3.gx-xl-4
 							each link in nav
 								.col-auto
 									a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
@@ -39,12 +52,12 @@ header(class=['header', 'js-header'])
 						.col-auto
 							a(href="tel:+72322344454" class="header__phone") +7 (232) 234-44-54
 						.col-auto.d-none.d-lg-block
-							.header__langswitcher
-								.header__langswitcher-item
-									input(id="langswitcher-ru" type="radio" name="langswitcher" checked="true")
+							.header__langswitcher.js-langswitcher
+								.header__langswitcher-item.is-active.js-langswitcher-item
+									input(id="langswitcher-ru" type="radio" name="langswitcher-header" checked)
 									label(for="langswitcher-ru") Ru
-								.header__langswitcher-item
-									input(id="langswitcher-ru" type="radio" name="langswitcher")
+								.header__langswitcher-item.js-langswitcher-item
+									input(id="langswitcher-ru" type="radio" name="langswitcher-header")
 									label(for="langswitcher-ru") En
 				.col-auto.d-block.d-lg-none
 					button(type='button' class="header__burger").js-menu-button
@@ -57,10 +70,16 @@ header(class=['header', 'js-header'])
 				a(href=link.href data-anchor=link.href class="link-highlight header__menu-link").js-menu-link #{link.name}
 			.row
 				.col-auto
-					.header__langswitcher
-						.header__langswitcher-item
-							input(id="langswitcher-ru" type="radio" name="langswitcher" checked)
+					.header__langswitcher.js-langswitcher
+						.header__langswitcher-item.is-active.js-langswitcher-item
+							input(id="langswitcher-ru" type="radio" name="langswitche-menu" checked)
 							label(for="langswitcher-ru") Ru
-						.header__langswitcher-item
-							input(id="langswitcher-ru" type="radio" name="langswitcher")
+						.header__langswitcher-item.js-langswitcher-item
+							input(id="langswitcher-ru" type="radio" name="langswitche-menu")
 							label(for="langswitcher-ru") En
+			.footer__socials
+				each icon in headerSocials
+					.footer__socials-icon
+						+icon(icon)
+				.footer__socials-icon
+					img(src="img/vc-ru.png" alt="")

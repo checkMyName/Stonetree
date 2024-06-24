@@ -3,8 +3,29 @@
 @import "node_modules/bootstrap/scss/vendor/rfs";
 
 .card__layouts {
+  padding-bottom: 100px;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 60px;
+  }
+
+  .catalog__item-info-table-row {
+    
+    span {
+      font-size: 16px;
+
+    }
+
+    .form__group {
+      font-size: 16px;
+    }
+  }
+
   .layouts {
     &__slider {
+
+      padding-bottom: 40px;
+
       &-slide {
         padding: 30px;
         background: #fcfcfc;
@@ -13,6 +34,10 @@
         @include media-breakpoint-down(lg) {
           padding: 20px;
         }
+
+        .sqrt__button {
+            margin-right: 0;
+          }
 
         &-title {
           font-weight: 500;
@@ -34,6 +59,7 @@
         }
 
         .catalog__item-info-table {
+
           &-row {
             display: flex;
             justify-content: space-between;
@@ -57,7 +83,7 @@
 
         @include media-breakpoint-down(lg) {
           justify-content: center;
-          margin-top: 12px;
+          margin-top: 26px;
 
           &-bullet {
             background: rgba(0, 0, 0, 0.2);
@@ -66,6 +92,37 @@
               background: #191919;
             }
           }
+        }
+      }
+
+      .slider__navigation-button {
+        position: absolute;
+        // background-color: get($colors, black);
+        border-color: rgba(#191919, .5);
+
+        .svg-icon {
+          fill: rgba(#191919, .5);
+        }
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+
+        &-prev,
+        &-next {
+          bottom: 30px;
+        }
+
+        &-prev {
+          left: 0;
+        }
+
+        &-next {
+          right: 0;
         }
       }
     }

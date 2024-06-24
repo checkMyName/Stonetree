@@ -181,7 +181,7 @@ section.section-bg-white.catalog.card__catalog
   .container
     h2.title.title-big.title-section Другие предложения
     .catalog__list
-      .row.g-3
+      .row.g-3.js-row
         each item in catalogCardList
           .col-12.col-lg-6.col-xl-4.element-animation
             .catalog__item.js-catalog-item
@@ -214,7 +214,7 @@ section.section-bg-white.catalog.card__catalog
 
               .catalog__item-info
                 .catalog__item-info-top
-                  h3.title.title-medium #{item.title}
+                  a(href="#").title.title-medium #{item.title}
                   .catalog__item-info-logo
                     img(src=item.logoUrl, alt="logo")
                 .catalog__item-info-middle
@@ -233,29 +233,28 @@ section.section-bg-white.catalog.card__catalog
                       .catalog__item-info-table-row.js-catalog-table-row
                         span #{row.name}
                         span.js-catalog-table-row-number !{row.size}
-                        .catalog__item-info-table-sqrt
-                          .form__group(data-select-dropdown)
-                            .form__dropdown
-                              button.form__dropdown-button(type='button' data-bs-toggle='dropdown' aria-expanded='false' data-select-dropdown-button data-value='meters')
-                                div(data-select-dropdown-selected) м#[sup 2]
-                                +icon('arrow-down')
-                              .form__dropdown-dropdown.dropdown-menu(data-select-dropdown-menu style)
-                                ul.form__dropdown-list
-                                  li.form__dropdown-list-item.is-selected.p-1(data-value='meters' data-number='35,7<sup>2</sup>' data-select-dropdown-option) м#[sup 2]
-                                  li.form__dropdown-list-item.p-2(data-value='sqarfeet' data-number='726 sq.ft<sup>2</sup>' data-select-dropdown-option) sq.ft
-                            input(hidden type='text' data-select-dropdown-output)
+                        .catalog__item-info-table-sqrt.js-sqrt
+                          .sqrt__button.js-sqrt-button
+                            span м#[sup 2]
+                            +icon('arrow-down')
+                          .d-none.js-sqrt-button-content
+                            ul
+                              li.js-sqrt-content-item.is-selected(data-value='meters' data-number='35,7<sup>2</sup>') м#[sup 2]
+                              li.js-sqrt-content-item(data-value='sqarfeet' data-number='726 sq.ft<sup>2</sup>') sq.ft
                   p.catalog__item-info-table-furniture Меблировка: нет
 
                 .catalog__item-info-controlls
                   .catalog__item-info-controlls-price.js-catalog-price
                     .catalog__item-info-controlls-list
                       each price, i in item.prices
-                        div(class=['catalog__item-info-controlls-elem', i==0 ? 'is-active': null] data-value=price.value).js-catalog-price-elem
+                        div(class=['catalog__item-info-controlls-elem', i==3 ? 'is-active': null] data-value=price.value).js-catalog-price-elem
                           span #{price.currency}
                     p.catalog__item-info-controlls-value от #[span.js-catalog-price-value 887 000 AED] 
                   a(href="#" class="button button-black")
                     span Подробнее 
 
+        .sqrt__content.js-sqrt-content
+
     .button-wrapper.element-animation
-      a(href="#" class="button button-black")
+      a(href="#" class="button button-black button-border-2")
         span Каталог объектов

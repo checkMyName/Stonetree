@@ -46,9 +46,13 @@
     }
 
     &__item {
+      @include transition;
+
       padding: 16px;
       background: #fcfcfc;
       border-radius: 16px;
+
+      cursor: pointer;
 
       &.is-current {
         background: #191919;
@@ -79,6 +83,8 @@
       }
 
       &-top {
+        @include transition;
+
         display: flex;
         justify-content: space-between;
         margin-bottom: 8px;
@@ -89,6 +95,8 @@
       }
 
       &-name {
+        @include transition;
+        
         font-weight: 500;
         font-size: 18px;
         line-height: 20px;

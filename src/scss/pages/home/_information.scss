@@ -36,6 +36,15 @@
           padding: 20px;
         }
 
+        sup {
+          font-size: 24px;
+          vertical-align: revert;
+
+          @include media-breakpoint-down(lg) {
+            font-size: 14px;
+          }
+        }
+
         &-title {
           font-size: 64px;
           font-weight: 400;
@@ -100,7 +109,12 @@
         z-index: 1;
 
         @include media-breakpoint-down(lg) {
-          display: none;
+          // display: none;
+          bottom: 120px;
+          right: 0;
+          width: 100%;
+          justify-content: center;
+          // transform: translateX(-50%);
         }
       }
 
@@ -109,8 +123,15 @@
         display: flex;
         justify-content: center;
         bottom: 52px;
-        width: 100%;
+        // width: 100%;
         z-index: 1;
+        
+        @include media-breakpoint-up(lg) {
+          transform: translateX(-50%);
+          left: 50%;
+          width: 60%;
+          
+        }
 
         @include media-breakpoint-down(lg) {
           bottom: 0;
@@ -242,6 +263,21 @@
       }
 
       .button {
+
+        position: relative;
+        padding: 19px;
+        color: get($colors, white);
+        border: 1px solid get($colors, white);
+        backdrop-filter: blur(7.5px);
+        background-color: transparent;
+
+        z-index: 2;
+
+        &:hover {
+          color: get($colors, black);
+          background-color: get($colors, white);
+        }
+
         @include media-breakpoint-down(lg) {
           width: 100%;
         }

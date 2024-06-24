@@ -2,6 +2,12 @@
 @import "../../utilities/mixins";
 @import "node_modules/bootstrap/scss/vendor/rfs";
 
+.page--card {
+  .breadcrumbs__item + .breadcrumbs__item::before {
+    background-color: rgba(#fcfcfc, 0.4);
+  }
+}
+
 .card__intro {
   position: relative;
   padding-top: 115px;
@@ -60,6 +66,7 @@
         }
 
         @include media-breakpoint-down(lg) {
+          margin-top: 20px;
           width: 100%;
         }
       }

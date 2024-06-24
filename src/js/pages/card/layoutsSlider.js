@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import Component from '../../classes/Component';
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const layoutsSliderSelector = '.js-card-layouts-slider';
 
@@ -11,7 +11,7 @@ export function layoutsSlider() {
     onCreate() { },
     onInit() {
       this.cardLayoutsSlider = new Swiper(layoutsSliderSelector, {
-        modules: [Pagination],
+        modules: [Pagination, Navigation],
         // speed: 700,
         // spaceBetween: 20,
 
@@ -42,10 +42,10 @@ export function layoutsSlider() {
         //   delay: 3000,
         // },
 
-        // navigation: {
-        //   nextEl: '.slider__navigation-button-next',
-        //   prevEl: '.slider__navigation-button-prev',
-        // },
+        navigation: {
+          nextEl: '.slider__navigation-button-next',
+          prevEl: '.slider__navigation-button-prev',
+        },
 
         pagination: {
           el: '.slider__pagination',

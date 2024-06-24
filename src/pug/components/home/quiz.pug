@@ -7,15 +7,19 @@
       answers: [
         {
           text: 'до 500 тыс $',
+          isChecked: true,
         },
         {
           text: 'до 1 млн $',
+          isChecked: false,
         },
         {
           text: 'до 5 млн $',
+          isChecked: false,
         },
         {
           text: 'более 5 млн $',
+          isChecked: false,
         },
       ]
     },
@@ -25,12 +29,15 @@
       answers: [
         {
           text: 'В новостройке',
+          isChecked: true,
         },
         {
           text: 'На вторичном рынке',
+          isChecked: false,
         },
         {
           text: 'Оба варианта',
+          isChecked: false,
         },
       ]
     },
@@ -39,12 +46,15 @@
       answers: [
         {
           text: 'В новостройке',
+          isChecked: true,
         },
         {
           text: 'На вторичном рынке',
+          isChecked: false,
         },
         {
           text: 'Оба варианта',
+          isChecked: false,
         },
       ]
     },
@@ -63,7 +73,7 @@ section.home__quiz#quiz
         .col-12.col-lg-6
           .h-100.d-flex.flex-column.justify-content-between
             h2.quiz__title Бесплатный подбор вариантов от наших специалистов, исходя из ваших потребностей, интересов и бюджета.
-            a(href="#").quiz__formlink
+            .quiz__formlink
               span Получите каталог лучших высокодоходных предложений на рынке на текущий момент, заполнив короткую форму
               .quiz__formlink-icon
                 +icon('file')
@@ -79,7 +89,7 @@ section.home__quiz#quiz
                       each a in step.answers
                         //- .form__group
                         .radio.quiz__form-questions-item
-                          input(type='radio' name=`radio-step-${i + 1}`).js-quiz-step-field
+                          input(type='radio' name=`radio-step-${i + 1}` checked=a.isChecked).js-quiz-step-field
                           span
                           p.mb-0 #{a.text}
 
@@ -90,8 +100,8 @@ section.home__quiz#quiz
                       p.mb-0 #[span.me-1 #{i + 1}] из #[span.ms-1 #{quizStepsList.length}]
               else
                 div(class=["quiz__form-step", step.state ? step.state : null] data-step-number=i).js-quiz-step
-                  .quiz__form-logo
-                    +icon('logo')
+                  //- .quiz__form-logo
+                  //-   +icon('logo')
                   .quiz__form-step-content
                     h3.quiz__form-title #{step.question}
 
@@ -117,15 +127,31 @@ section.home__quiz#quiz
                   .quiz__form-socials
                     p.quiz__form-socials-title Удобный способ связи
                     .quiz__form-socials-list
-                      a(href="#").quiz__form-socials-item
-                        include ../../components/whatsup
-                        span Whatsapp
-                      a(href="#").quiz__form-socials-item
-                        include ../../components/telegram
-                        span Telegram
-                      a(href="#").quiz__form-socials-item
-                        include ../../components/phone
-                        span Телефон
+                      .quiz__form-socials-item
+                        input(type="radio" name="socials")
+                        .quiz__form-socials-content
+                          include ../../components/whatsup
+                          span Whatsapp
+                      .quiz__form-socials-item
+                        input(type="radio" name="socials")
+                        .quiz__form-socials-content
+                          include ../../components/telegram
+                          span Telegram
+                      .quiz__form-socials-item
+                        input(type="radio" name="socials")
+                        .quiz__form-socials-content
+                          include ../../components/phone
+                          span Телефон
+                    //- .quiz__form-socials-list
+                    //-   a(href="#").quiz__form-socials-item
+                    //-     include ../../components/whatsup
+                    //-     span Whatsapp
+                    //-   a(href="#").quiz__form-socials-item
+                    //-     include ../../components/telegram
+                    //-     span Telegram
+                    //-   a(href="#").quiz__form-socials-item
+                    //-     include ../../components/phone
+                    //-     span Телефон
 
                   .quiz__form-controlls
                     button(type="button" class="button button-outline").js-quiz-back

@@ -42,16 +42,16 @@ export default function (valueAttr = 'data-value') {
 		;
 
 		if (isElement(selectedOption)) {
-			const outputNumber = get('.js-catalog-table-row-number', root.parentNode.parentNode)
+			// const outputNumber = get('.js-catalog-table-row-number', root.parentNode.parentNode)
 
 			attr(button, valueAttr, attr(selectedOption, valueAttr));
 			html(buttonContent, html(selectedOption));
 
 			const val = attr(selectedOption, valueAttr);
-			const number = attr(selectedOption, dataNumber);
+			// const number = attr(selectedOption, dataNumber);
 			
 			output.value = val;
-			outputNumber.innerHTML = number;
+			// outputNumber.innerHTML = number;
 			
 			$events.emit(variables.customEventNames.selectDropdownSelected, {
 				value: val,

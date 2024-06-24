@@ -41,6 +41,7 @@ export function newsControllsSlider() {
     onCreate() { },
     onInit() {
       this.newsControllsElementSlider = new Swiper(newsControllsSliderSelector, {
+        modules: [Navigation],
 
         breakpoints: {
           320: {
@@ -51,6 +52,11 @@ export function newsControllsSlider() {
             slidesPerView: 'auto',
             spaceBetween: 20,
           }
+        },
+
+        navigation: {
+          nextEl: '.slider__navigation-button-next',
+          prevEl: '.slider__navigation-button-prev',
         },
 
         on: {

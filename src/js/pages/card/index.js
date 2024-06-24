@@ -2,6 +2,7 @@ import Page from '../../classes/Page';
 import { advantagesSlider } from './advantagesSlider';
 import { gallerySlider } from './gallerySlider';
 import { layoutsSlider } from './layoutsSlider';
+import { locationsChanger } from './locationsChanger';
 
 const cardPage = new Page({
   name: 'card',
@@ -17,6 +18,7 @@ const cardPage = new Page({
       .addComponent(layoutsSlider)
       .addComponent(advantagesSlider)
       .addComponent(gallerySlider)
+      .addComponent(locationsChanger)
   },
   onDestroy() {
     console.log('card destroy')

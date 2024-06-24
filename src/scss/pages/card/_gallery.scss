@@ -102,18 +102,22 @@
       }
 
       &-counter {
-        z-index: 1;
+        position: absolute;
+        z-index: 2;
         padding: 14px 16px;
         background: #fcfcfc;
         border-radius: 16px;
 
+        cursor: pointer;
+
         @include media-breakpoint-up(lg) {
-          position: absolute;
           top: 30px;
           right: 30px;
         }
 
         @include media-breakpoint-down(lg) {
+          top: -110px;
+          right: 0;
           padding: 8px;
           background: #efefef;
           border-radius: 8px;
@@ -143,6 +147,9 @@
       }
 
       &-item {
+
+        // cursor: pointer;
+
         &-img {
           --page-aspect-ratio: calc(6 / 16 * 100%);
           border-radius: 32px;
@@ -163,6 +170,8 @@
         }
 
         &-item {
+          cursor: pointer;
+          
           &-img {
             border-radius: 24px;
             overflow: hidden;

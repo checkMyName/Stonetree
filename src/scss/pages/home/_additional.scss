@@ -8,6 +8,12 @@
   padding-top: 60px;
   padding-bottom: 100px;
 
+  .button-wrapper {
+    @include media-breakpoint-down(lg) {
+      margin-top: 16px;
+    }
+  }
+
   .additional {
     &__title {
       margin-bottom: 12px;
@@ -30,6 +36,10 @@
     &__slider {
       position: relative;
 
+      // @include media-breakpoint-down(lg) {
+      //   padding-bottom: 20px;
+      // }
+
       &-slide {
         padding: 12px;
         background: #eaeaea;
@@ -48,6 +58,7 @@
           background: #fcfcfc;
           border-radius: 20px;
           padding: 30px;
+          user-select: none;
 
           @include media-breakpoint-up(xl) {
             width: 350px;
@@ -88,7 +99,7 @@
                 width: 4px;
                 height: 4px;
                 border-radius: 50%;
-                background-color: #d9d9d9;
+                background-color: #AEAEAE;
               }
             }
           }
@@ -144,17 +155,26 @@
         @include media-breakpoint-up(lg) {
           display: none;
         }
+      
+        @include media-breakpoint-down(lg) {
+          margin-top: 20px;
+          margin-bottom: 16px;
+        }
       }
 
       .slider__navigation-button {
         position: absolute;
-        top: calc(50% - 24px);
         z-index: 1;
         background: #191919;
         border: none;
+        
+        @include media-breakpoint-up(lg) {
+          top: calc(50% - 24px);
+        }
 
         @include media-breakpoint-down(lg) {
-          display: none;
+          // display: none;
+          bottom: 0;
         }
 
         .swiper-button-disabled {

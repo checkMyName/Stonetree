@@ -105,7 +105,7 @@ export function quizFunctional() {
 
     removeClass(stepsElements[stepsElements.length - 1], currentClassName);
 
-    addClass(stepsElements[0], currentClassName);
+    addClass(stepsElements[1], currentClassName);
 
     stepsStateHandler();
   }

@@ -62,6 +62,10 @@ section.section-bg-white.card__advantages
               .advantages__slider-item
                 img(src=`img/card/advantages/advantages-icon-${i + 1}.svg`, alt="icon")
                 p #{slide.name}
-        
+
         .slider__pagination
           .slider__pagination-bullet
+        .slider__navigation-button.slider__navigation-button-prev
+          +icon('arrow-down')
+        .slider__navigation-button.slider__navigation-button-next
+          +icon('arrow-down')

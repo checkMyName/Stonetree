@@ -15,12 +15,14 @@ section.section-bg-white.home__news
       },
       {
         itemType: 'small',
+        imgUrl: 'img/home/news/news-item-img-2',
         type: 'Недвижимость',
         date: '20.05.2024',
         title: 'Как выделить свой объект на рынке недвижимости Дубая?',
       },
       {
         itemType: 'small',
+        imgUrl: 'img/home/news/news-item-img-2',
         type: 'Деньги',
         date: '20.05.2024',
         title: 'Сверхбогатые выбирают Дубай Почему?',
@@ -53,14 +55,14 @@ section.section-bg-white.home__news
     .news__wrapper
       .news__list
         each item in newsItemsList
-          div(class=['news__item', `news__item--${item.itemType}`]).element-animation
-            if item.imgUrl
-              +lazyImage({
-                imageSrc: item.imgUrl,
-                type: 'background',
-                classes: 'w-100 ratio news__item-bg',
-                imageClasses: 'w-100 h-100',
-              })
+          a(href="#" class=['news__item', `news__item--${item.itemType}`]).element-animation
+            //- if item.imgUrl
+            +lazyImage({
+              imageSrc: item.imgUrl,
+              type: 'background',
+              classes: 'w-100 ratio news__item-bg',
+              imageClasses: 'w-100 h-100',
+            })
             .news__item-top
               span.news__item-top-type #{item.type}
               span.news__item-top-date #{item.date}
@@ -72,5 +74,5 @@ section.section-bg-white.home__news
               +icon('book')
               span 5 минут
     .button-wrapper.element-animation
-      a(href="#" class="button button-black")
+      a(href="#" class="button button-black button-border-2")
         span Все новости

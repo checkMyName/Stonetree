@@ -120,7 +120,7 @@ block mainContent
           .row.gy-3.gy-lg-0
             each item in newsItemsList
               .col-12.col-lg-6
-                div(class=['news__item', `news__item--${item.itemType}`]).element-animation
+                a(href="#" class=['news__item', `news__item--${item.itemType}`]).element-animation
                   if item.imgUrl
                     +lazyImage({
                       imageSrc: item.imgUrl,
@@ -137,8 +137,8 @@ block mainContent
                     +icon('book')
                     span 5 минут
           .button-wrapper.element-animation
-            a(href="#" class="button button-black")
-              span Другие статьи
+            a(href="#" class="button button-black button-border-2")
+              span Все новости
 
 
 

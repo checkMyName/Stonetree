@@ -15,14 +15,14 @@
   padding-bottom: 4px;
 
   &::after {
-    @include transition;
     @include pseudo;
-
+    
     bottom: 0;
     left: 0;
     width: 0;
     height: 1px;
     background-color: get($colors, white);
+    transition: all .5s ease-in-out;
   }
 
   &:hover {
@@ -78,6 +78,11 @@
     p {
       line-height: 18px;
       letter-spacing: -0.065em;
+    }
+
+    a {
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -197,9 +202,9 @@
     z-index: 10;
     width: 100%;
 
-    @include media-breakpoint-down(lg) {
-      align-items: flex-end;
-    }
+    // @include media-breakpoint-down(lg) {
+    //   align-items: flex-end;
+    // }
   }
 
   &__navigation {
@@ -228,6 +233,8 @@
       }
 
       .svg-icon {
+        @include transition;
+
         stroke: get($colors, white);
         width: 12px;
         height: 12px;
@@ -239,7 +246,12 @@
       }
 
       &:hover {
-        border-radius: 14px;
+        // border-radius: 14px;
+        background-color: get($colors, white);
+
+        .svg-icon {
+          fill: get($colors, black);
+        }
       }
 
       &-prev {
@@ -462,6 +474,7 @@
 
   &__button {
     opacity: 0.5;
+    cursor: pointer;
 
     .svg-icon {
       width: 12px;
@@ -493,6 +506,10 @@
   }
 
   &__item {
+    user-select: none;
+
+    cursor: pointer;
+    
     span {
       font-size: 20px;
       line-height: 100%;
@@ -608,6 +625,82 @@
   }
 }
 
-// main {
-//   height: 100vh;
-// }
+.filter-element {
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+
+  &.is-hidden {
+    width: 0;
+    padding: 0;
+  }
+}
+
+.sqrt {
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 8px;
+
+    .svg-icon {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      margin-left: 7px;
+    }
+
+    &.is-active {
+      .svg-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    // padding: 5px;
+    background-color: white;
+    z-index: 10;
+    width: auto;
+    // max-width: 50px;
+    box-shadow: 0px 5px 8px 0px #00000021;
+    border-radius: 6px;
+    padding: 0;
+    overflow: hidden;
+
+    &:not(.is-active) {
+      display: none;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    li {
+      @include transition;
+      position: relative;
+      padding: 8px 12px;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #E9E9E9;
+      }
+    }
+
+    li + li {
+      &::after {
+        @include pseudo;
+
+        top: 0;
+        left: calc(50% - calc(35px / 2));
+        width: 35px;
+        height: 1px;
+        background-color: #E9E9E9;
+      }
+    }
+  }
+}

@@ -71,9 +71,9 @@
       border-radius: 24px;
       max-width: 475px;
 
-      @include media-breakpoint-up(xxxl) {
-        margin-bottom: 94px;
-      }
+      // @include media-breakpoint-up(xxxl) {
+      //   margin-bottom: 94px;
+      // }
 
       @include media-breakpoint-down(xl) {
         padding: 20px;
@@ -278,19 +278,21 @@
         }
 
         &-list {
+          display: flex;
           @include media-breakpoint-down(lg) {
-            display: flex;
+            // display: flex;
             flex-direction: column;
           }
         }
 
+        &-content {
+          display: flex;
+          align-items: center;
+        }
+
         &-item {
           cursor: pointer;
-
-          .svg-icon {
-            width: 40px;
-            height: 40px;
-          }
+          position: relative;
 
           span {
             margin-left: 8px;
@@ -303,7 +305,18 @@
             }
           }
 
-          &:hover {
+          input[type="radio"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+            cursor: pointer;
+          }
+
+          input[type="radio"]:checked + .quiz__form-socials-content {
             .whatsup {
               rect {
                 fill: #1ece30;
@@ -336,12 +349,46 @@
               }
             }
           }
+          // &:hover {
+          //   .whatsup {
+          //     rect {
+          //       fill: #1ece30;
+          //     }
+
+          //     path {
+          //       fill: #fcfcfc;
+          //     }
+          //   }
+
+          //   .telegram {
+          //     rect {
+          //       fill: #159dff;
+          //     }
+
+          //     path {
+          //       fill: #ffffff;
+          //     }
+          //   }
+
+          //   .phone {
+          //     rect {
+          //       @include transition;
+          //       fill: #ececec;
+          //     }
+
+          //     path {
+          //       @include transition;
+          //       stroke: #000000;
+          //     }
+          //   }
+          // }
 
           .whatsup,
           .telegram,
           .phone {
             width: 40px;
             height: 40px;
+            flex-shrink: 0;
 
             @include media-breakpoint-down(lg) {
               width: 28px;
@@ -398,9 +445,14 @@
 
         .button {
           width: 200px;
+          border-color: #191919;
 
           span {
             font-weight: 500;
+          }
+
+          &.button-black {
+            border-width: 2px;
           }
 
           @include media-breakpoint-down(lg) {

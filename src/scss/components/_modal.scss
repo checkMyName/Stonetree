@@ -37,6 +37,7 @@
 	&--form {
 		.form__block {
 			max-width: 100%;
+			padding: 40px;
 
 			&-title {
 				font-size: 32px;
@@ -44,6 +45,10 @@
 				@include media-breakpoint-down(lg) {
 					font-size: 20px;
 				}
+			}
+
+			.form__group.is-need-validate {
+				padding-bottom: 15px;
 			}
 		}
 

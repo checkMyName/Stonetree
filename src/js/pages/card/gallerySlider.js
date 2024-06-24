@@ -24,11 +24,13 @@ const galleryControllsItemSelector = '.js-gallery-controlls-item';
 const galleryTabSelector = '.js-gallery-tab';
 const galleryTabItemSelector = '.js-gallery-tab-item';
 
+const galleryOpenerSelector = '.js-gallery-opener';
+
 const dataTabIndex = 'data-tab-index';
 
 export function gallerySlider() {
 
-  let allowClick = null;
+  // let allowClick = null;
 
   let currentItem = `${galleryTabItemSelector}.is-current`;
 
@@ -67,16 +69,16 @@ export function gallerySlider() {
             },
           },
 
-          on: {
+          // on: {
 
-            touchStart: function () {
-              allowClick = false;
-            },
+          //   touchStart: function () {
+          //     allowClick = false;
+          //   },
 
-            touchMove: function () {
-              allowClick = false;
-            },
-          },
+          //   touchMove: function () {
+          //     allowClick = false;
+          //   },
+          // },
 
           
         })
@@ -90,25 +92,25 @@ export function gallerySlider() {
           })
         },
 
-        touchStart: function () {
-          allowClick = true;
+        // touchStart: function () {
+        //   allowClick = true;
 
-          console.log(allowClick);
-          console.log('2');
-        },
+        //   console.log(allowClick);
+        //   console.log('2');
+        // },
 
-        touchMove: function () {
-          allowClick = false;
+        // touchMove: function () {
+        //   allowClick = false;
 
-          console.log(allowClick);
-          console.log('2');
-        },
+        //   console.log(allowClick);
+        //   console.log('2');
+        // },
 
-        touchEnd: function () {
-          setTimeout(function () {
-            allowClick = true;
-          }, 100);
-        },
+        // touchEnd: function () {
+        //   setTimeout(function () {
+        //     allowClick = true;
+        //   }, 100);
+        // },
       }
     })
   }
@@ -158,11 +160,13 @@ export function gallerySlider() {
   }
 
   const tabItemClickHandler = event => {
-    const target = event.target.closest(galleryTabItemSelector);
+    const target = event.target.closest(galleryOpenerSelector);
+
+    console.log(target);
     
-    if (!allowClick) return;
+    // if (!allowClick) return;
     
-    const itemSliderContent = get('.swiper-wrapper', target).innerHTML;
+    const itemSliderContent = get('.swiper-wrapper', target.parentNode).innerHTML;
 
     get(galleryModalSliderWrapperSelector).innerHTML = itemSliderContent;
 
@@ -183,7 +187,7 @@ export function gallerySlider() {
 
       $events.delegate
         .on('click', galleryControllsSelector, tabsClickHandler)
-        .on('click', galleryTabItemSelector, tabItemClickHandler)
+        .on('click', galleryOpenerSelector, tabItemClickHandler)
     },
     onDestroy() {
       if (initSlider() instanceof Swiper) {
@@ -197,7 +201,7 @@ export function gallerySlider() {
 
       $events.delegate
         .off('click', galleryControllsSelector, tabsClickHandler)
-        .off('click', galleryTabItemSelector, tabItemClickHandler);
+        .off('click', galleryOpenerSelector, tabItemClickHandler);
     }
   })
 }

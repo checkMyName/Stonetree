@@ -42,12 +42,14 @@ block mainContent
       },
       {
         itemType: 'small',
+        imgUrl: 'img/home/news/news-item-img-2',
         type: 'Недвижимость',
         date: '20.05.2024',
         title: 'Как выделить свой объект на рынке недвижимости Дубая?',
       },
       {
         itemType: 'small',
+        imgUrl: 'img/home/news/news-item-img-2',
         type: 'Деньги',
         date: '20.05.2024',
         title: 'Сверхбогатые выбирают Дубай Почему?',
@@ -106,11 +108,16 @@ block mainContent
               .swiper-slide
                 div(class=['controlls-item', item.isActive ? 'is-active' : null] data-tab-index=i).js-controlls-item
                   span #{item.name}
+          .slider__navigation
+            .slider__navigation-button.slider__navigation-button-prev
+              +icon('arrow-down')
+            .slider__navigation-button.slider__navigation-button-next
+              +icon('arrow-down')
 
       .news__wrapper
         .news__list
           each item in newsItemsList
-            div(class=['news__item', `news__item--${item.itemType}`]).element-animation
+            a(href="#" class=['news__item', `news__item--${item.itemType}`]).element-animation
               if item.imgUrl
                 +lazyImage({
                   imageSrc: item.imgUrl,

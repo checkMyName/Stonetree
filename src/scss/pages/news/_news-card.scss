@@ -5,6 +5,10 @@
 .page--news-card {
   // #FCFCFC
 
+  .breadcrumbs {
+    // margin-bottom: 40px;
+  }
+
   .breadcrumbs__item + .breadcrumbs__item::before {
     background-color: rgba(#fcfcfc, 0.4);
   }
@@ -133,7 +137,7 @@
 
 .news-card__article {
   position: relative;
-  padding-top: 110px;
+  padding-top: 60px;
   border-radius: 50px 50px 0px 0px;
   z-index: 1;
 
@@ -272,6 +276,11 @@
 
   .news__item {
     height: 100%;
+    padding-bottom: 24px;
+
+    @include media-breakpoint-down(lg) {
+      padding-bottom: 20px;
+    }
 
     &-content {
       display: -webkit-box;

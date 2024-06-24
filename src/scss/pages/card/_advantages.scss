@@ -8,20 +8,19 @@
   @include media-breakpoint-down(lg) {
     padding-bottom: 105px;
   }
-  
+
   .advantages {
     &__slider {
       padding-bottom: 0;
       margin-bottom: 0;
 
-      
       // .swiper-wrapper {
-        
+
       //   @include media-breakpoint-down(lg) {
       //     max-height: 365px;
       //   }
       // }
-      
+
       &-item {
         display: flex;
         align-items: center;
@@ -46,6 +45,38 @@
         }
       }
 
+      .slider__navigation {
+        @include media-breakpoint-up(xl) {
+          display: none;
+        }
+
+        &-button {
+          position: absolute;
+          border-color: rgba(#191919, 0.5);
+
+          .svg-icon {
+            fill: rgba(#191919, 0.5);
+          }
+
+          &:hover {
+            background-color: transparent;
+          }
+
+          &-prev,
+          &-next {
+            bottom: 0;
+          }
+
+          &-prev {
+            left: 0;
+          }
+
+          &-next {
+            right: 0;
+          }
+        }
+      }
+
       .slider__pagination {
         @include media-breakpoint-up(xl) {
           display: none;
@@ -53,7 +84,9 @@
 
         @include media-breakpoint-down(xl) {
           justify-content: center;
-          margin-top: 12px;
+          margin-top: 20px;
+          margin-bottom: 12px;
+          width: auto;
 
           &-bullet {
             background: rgba(0, 0, 0, 0.2);

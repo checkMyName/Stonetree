@@ -8,12 +8,13 @@ section.section-bg-more-white.home__additional
           .swiper-slide.additional__slider-slide
             .row.gx-3
               .col-12.col-lg
-                +lazyImage({
-                  imageSrc: 'img/home/additional-slider-img',
-                  type: 'background',
-                  classes: 'w-100 h-100 ratio additional__slider-slide-img',
-                  imageClasses: 'w-100 h-100',
-                })
+                a(href="#") 
+                  +lazyImage({
+                    imageSrc: 'img/home/additional-slider-img',
+                    type: 'background',
+                    classes: 'w-100 h-100 ratio additional__slider-slide-img',
+                    imageClasses: 'w-100 h-100',
+                  })
               .col-12.col-lg-auto
                 .additional__slider-slide-content
                   h3.additional__slider-slide-title Concorde Tower
@@ -41,12 +42,13 @@ section.section-bg-more-white.home__additional
                       p 51,5%
       .slider__pagination
         .slider__pagination-bullet
-      .slider__navigation-button.slider__navigation-button-prev
-        +icon('arrow-down')
-      .slider__navigation-button.slider__navigation-button-next
-        +icon('arrow-down')
+      .d-flex
+        .slider__navigation-button.slider__navigation-button-prev
+          +icon('arrow-down')
+        .slider__navigation-button.slider__navigation-button-next
+          +icon('arrow-down')
     .button-wrapper.element-animation
-      a(href="#" class="button button-black")
+      a(href="#" class="button button-black button-border-2")
         span Подробнее
 
 
