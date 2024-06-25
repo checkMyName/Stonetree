@@ -60,12 +60,21 @@
 
         .catalog__item-info-table {
 
+          &-sqrt {
+            position: relative;
+          }
+
           &-row {
             display: flex;
             justify-content: space-between;
 
             span {
               color: #191919;
+            }
+
+            .sqrt__content {
+              top: 100%;
+              right: 0;
             }
           }
 

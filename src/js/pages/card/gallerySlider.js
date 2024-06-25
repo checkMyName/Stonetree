@@ -42,8 +42,26 @@ export function gallerySlider() {
 
   const initSlider = () => {
     return new Swiper(`${currentItem} ${gallerySliderSelector}`, {
-      modules: [Thumbs],
+      modules: [Thumbs, Navigation],
       spaceBetween: 8,
+      slidesPerView: 1,
+
+      // breakpoints: {
+      //   320: {
+      //     spaceBetween: 8,
+      //   },
+      //   768: {
+      //     spaceBetween: 8,
+      //   },
+      //   992: {
+      //     spaceBetween: 8,
+      //   },
+      // },
+
+      navigation: {
+        nextEl: '.slider__navigation-button-next',
+        prevEl: '.slider__navigation-button-prev',
+      },
 
       thumbs: {
         slideThumbActiveClass: active,
@@ -52,13 +70,13 @@ export function gallerySlider() {
 
           breakpoints: {
             320: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 8,
             },
-            // 768: {
-            //   slidesPerView: 1,
-            //   spaceBetween: 8,
-            // },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 8,
+            },
             992: {
               slidesPerView: 4,
               spaceBetween: 8,

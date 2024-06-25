@@ -3,7 +3,7 @@ import Component from '../../classes/Component';
 import { $events } from '../../helpers/events';
 import { $dom } from '../../helpers/dom';
 import variables from '../../variables';
-import { Grid } from 'swiper/modules';
+import { Grid, Navigation } from 'swiper/modules';
 
 const teamControllsSliderSelector = '.js-team-controlls-slider';
 
@@ -39,7 +39,12 @@ export function teamControllsSlider() {
   const teamSliderInit = () => {
     if (window.innerWidth <= 991) {
       teamSliderElement = new Swiper(teamControllsSliderSelector, {
-        modules: [Grid],
+        modules: [Grid, Navigation],
+
+        navigation: {
+          nextEl: '.slider__navigation-button-next',
+          prevEl: '.slider__navigation-button-prev',
+        },
 
         breakpoints: {
           320: {

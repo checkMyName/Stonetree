@@ -96,6 +96,7 @@ section.home__intro
               type: 'phone',
               placeholder: 'Телефон',
               classes: 'js-phone-mask',
+              validateLength: 18,
               validate: true
             })
           .col-12
@@ -106,7 +107,7 @@ section.home__intro
             })
         .form__block-agreement
           .checkbox
-            input(type="checkbox" name="agreement")
+            input(type="checkbox" name="agreement" required="true").is-need-validate
             span
             p.mb-0 Я даю согласие на обработку персональных данных в соответствии с #[a(href="#" class="text-danger") Политикой конфиденциальности]
 

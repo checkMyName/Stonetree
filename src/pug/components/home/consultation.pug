@@ -14,7 +14,7 @@ section.section-bg-white.home__consultation
               h2.consultation__title Получите бесплатную консультацию
               p.consultation__subtitle Оставьте свои контактные данные, чтобы получить консультацию
           .col-12.col-lg-6.col-xl-auto
-            form.form__block
+            form(class=['js-form-validate']).form__block
               .row
                 .col-12
                   +field({
@@ -28,6 +28,7 @@ section.section-bg-white.home__consultation
                     type: 'phone',
                     placeholder: 'Телефон',
                     classes: 'js-phone-mask',
+                    validateLength: 18,
                     validate: true
                   })
                 .col-12
@@ -41,5 +42,6 @@ section.section-bg-white.home__consultation
                   input(type="checkbox" name="agreement")
                   span
                   p.mb-0 Я даю согласие на обработку персональных данных в соответствии с #[a(href="#" class="text-danger") Политикой конфиденциальности]
-              a(href="#" class="button button-black button-border-2")
-                span Отправить 
+              button(type="submit" class="button button-black")
+                span Отправить
+                .spinner-border.spinner-form(role='status') 

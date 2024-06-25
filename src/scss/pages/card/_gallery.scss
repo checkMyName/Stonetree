@@ -3,6 +3,7 @@
 @import "node_modules/bootstrap/scss/vendor/rfs";
 
 .card__gallery {
+  position: relative;
   overflow: hidden;
   padding-top: 110px;
   padding-bottom: 100px;
@@ -15,6 +16,20 @@
     margin-top: -25px;
     border-radius: 25px 25px 0px 0px;
   }
+
+  .slider__navigation {
+      position: absolute;
+      top: -110px;
+      right: 0;
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+
+      &-button {
+        border: 1px solid #191919
+      }
+    }
 
   .gallery {
     &__top {
@@ -116,8 +131,10 @@
         }
 
         @include media-breakpoint-down(lg) {
-          top: -110px;
-          right: 0;
+          // top: -110px;
+          // right: 0;
+          top: 16px;
+          right: 16px;
           padding: 8px;
           background: #efefef;
           border-radius: 8px;
@@ -165,9 +182,9 @@
       &-thumb {
         margin-top: 20px;
 
-        @include media-breakpoint-down(lg) {
-          display: none;
-        }
+        // @include media-breakpoint-down(lg) {
+        //   display: none;
+        // }
 
         &-item {
           cursor: pointer;

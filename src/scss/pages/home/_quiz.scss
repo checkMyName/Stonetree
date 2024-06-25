@@ -128,7 +128,7 @@
       }
 
       @include media-breakpoint-down(lg) {
-        height: 550px;
+        height: 450px;
       }
 
       &-logo {
@@ -281,7 +281,7 @@
           display: flex;
           @include media-breakpoint-down(lg) {
             // display: flex;
-            flex-direction: column;
+            // flex-direction: column;
           }
         }
 
@@ -294,6 +294,10 @@
           cursor: pointer;
           position: relative;
 
+          @include media-breakpoint-down(lg) {
+            font-size: 12px;
+          }
+
           span {
             margin-left: 8px;
             margin-right: 20px;
@@ -301,7 +305,7 @@
 
           @include media-breakpoint-down(lg) {
             &:not(:first-child) {
-              margin-top: 6px;
+              margin-left: 6px;
             }
           }
 
@@ -340,12 +344,14 @@
             .phone {
               rect {
                 @include transition;
-                fill: #ececec;
+                // fill: #ececec;
+                fill: #000000;
               }
 
               path {
                 @include transition;
-                stroke: #000000;
+                // stroke: #000000;
+                stroke: #ececec;
               }
             }
           }

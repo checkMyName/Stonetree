@@ -345,19 +345,24 @@ section.section-bg-white.catalog#catalog
                   p #{item.description}
 
                 .catalog__item-info-table.js-catalog-table
-                  .catalog__item-info-table-content
-                    each row in item.roomsList
-                      .catalog__item-info-table-row.js-catalog-table-row
-                        span #{row.name}
-                        span.js-catalog-table-row-number !{row.size}
-                        .catalog__item-info-table-sqrt.js-sqrt
-                          .sqrt__button.js-sqrt-button
-                            span м#[sup 2]
-                            +icon('arrow-down')
-                          .d-none.js-sqrt-button-content
-                            ul
-                              li.js-sqrt-content-item.is-selected(data-value='meters' data-number='35,7<sup>2</sup>') м#[sup 2]
-                              li.js-sqrt-content-item(data-value='sqarfeet' data-number='726 sq.ft<sup>2</sup>') sq.ft
+                  .catalog__item-info-table-content.js-alt-sqrt-table
+                    .catalog__item-info-table-sqrt.js-alt-sqrt
+                      .catalog__item-info-table-top
+                        span Площадь в
+                        .sqrt__button.js-alt-sqrt-button
+                          span м#[sup 2]
+                          +icon('arrow-down')
+                        .d-none.js-sqrt-button-content
+                          ul
+                            li.js-alt-sqrt-content-item.is-selected(data-value='meters') м#[sup 2]
+                            li.js-alt-sqrt-content-item(data-value='sqarfeet') sq.ft
+                    p.mb-0 Квартиры
+                    .catalog__item-info-table-bottom
+                      each row in item.roomsList
+                        div(data-number-m='35,7 м<sup>2</sup>' data-number-sqrt='726 sq.ft<sup>2</sup>').catalog__item-info-table-row.js-catalog-table-row
+                          span #{row.name}
+                          span.js-catalog-table-row-number !{row.size}
+
                   p.catalog__item-info-table-furniture Меблировка: нет
 
                 .catalog__item-info-controlls

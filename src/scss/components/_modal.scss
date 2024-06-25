@@ -38,6 +38,10 @@
 		.form__block {
 			max-width: 100%;
 			padding: 40px;
+			
+			@include media-breakpoint-up(lg) {
+				height: 488px;
+			}
 
 			&-title {
 				font-size: 32px;
@@ -89,6 +93,15 @@
 	}
 
 	&--brochure {
+
+		.form__block {
+			
+			@include media-breakpoint-up(lg) {
+				height: 208px;
+
+			}
+		}
+
 		.title {
 			font-weight: 500;
 			font-size: 32px;
@@ -109,7 +122,7 @@
 
 		.modal {
 			&-dialog {
-				max-width: 700px;
+				max-width: 660px;
 			}
 
 			&-content {

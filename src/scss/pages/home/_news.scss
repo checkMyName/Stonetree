@@ -270,6 +270,8 @@
 
             @include media-breakpoint-down(lg) {
               margin-top: 160px;
+
+              color: #D2D2D2;
             }
 
             .svg-icon {
@@ -334,7 +336,7 @@
             }
 
             &-date {
-              color: #ffffff;
+              color: #D2D2D2;
               font-size: 14px;
               line-height: 100%;
               letter-spacing: -0.045em;
@@ -373,7 +375,7 @@
 
             span {
               // color: #848484;
-              color: #ffffff;
+              color: #D2D2D2;
             }
           }
         }
@@ -431,7 +433,7 @@
             }
 
             &-date {
-              color: #ffffff;
+              color: #D2D2D2;
               font-size: 14px;
             }
           }

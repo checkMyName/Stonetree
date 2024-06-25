@@ -3,57 +3,67 @@ section.section-bg-more-white.card__locations
   -
     locationsList = [
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-about-img',
         isCurrent: true,
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-locations-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-about-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-locations-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-about-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-locations-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-about-img',
       },
       {
-        distance: '1.35',
+        distance: '15',
         name: 'Dubai Silicon Oasis',
+        imgUrl: 'img/card/card-locations-img',
       },
     ]
   
   .container
     h2.title.title-big.title-section.element-animation Локации рядом
     .locations__wrapper.element-animation
-      .locations__content
+      .locations__content.js-locations-content
         .locations__list.order-2.order-xl-1.js-locations
-          each item in locationsList
-            div(class=["locations__item", item.isCurrent ? 'is-current' : null]).js-locations-item
+          each item, i in locationsList
+            div(class=["locations__item", item.isCurrent ? 'is-current' : null] data-location-id=i).js-locations-item
               .locations__item-top
                 span Локация
                 span #{item.distance} мин
               p.locations__item-name #{item.name}
-        +lazyImage({
-          imageSrc: 'img/card/card-locations-img',
-          type: 'background',
-          classes: 'w-100 h-100 ratio ratio-3x4 order-1 order-xl-2 locations__image',
-          imageClasses: 'w-100 h-100',
-        })
+        .locations__image.order-1.order-xl-2
+          each item in locationsList
+            +lazyImage({
+              imageSrc: item.imgUrl,
+              type: 'background',
+              classes: `w-100 h-100 ratio ratio-3x4 locations__image-item js-locations-image ${item.isCurrent ? 'is-current' : null}`,
+              imageClasses: 'w-100 h-100',
+            })
       .d-block.d-xl-none
         a(href="#" class="button button-outline")
           span Показать еще 

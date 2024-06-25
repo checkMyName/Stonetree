@@ -473,10 +473,12 @@
   }
 
   &__button {
-    opacity: 0.5;
+    @include transition;
+    // opacity: 0.5;
     cursor: pointer;
 
     .svg-icon {
+      @include transition;
       width: 12px;
       height: 12px;
     }
@@ -485,6 +487,14 @@
       .svg-icon {
         width: 8px;
         height: 8px;
+      }
+    }
+
+    &:hover {
+      background-color: #191919;
+
+      .svg-icon {
+        fill: get($colors, white);
       }
     }
 
@@ -648,7 +658,7 @@
       width: 7px;
       height: 7px;
       flex-shrink: 0;
-      margin-left: 7px;
+      margin-left: 4px;
     }
 
     &.is-active {

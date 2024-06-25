@@ -54,7 +54,7 @@
           @include media-breakpoint-down(xl) {
             font-size: 40px;
           }
-          
+
           @include media-breakpoint-down(lg) {
             font-size: 36px;
           }
@@ -94,7 +94,8 @@
       color: get($colors, white);
 
       @include media-breakpoint-down(lg) {
-        padding-bottom: 16px;
+        // padding-bottom: 16px;
+        padding-bottom: 48px;
       }
 
       .swiper-wrapper {
@@ -108,12 +109,23 @@
         right: 30px;
         z-index: 1;
 
+        &-button {
+          @include media-breakpoint-down(lg) {
+            border: 1px solid #191919;
+          
+          .svg-icon {
+            fill: #191919;
+          }
+          }
+        }
+
         @include media-breakpoint-down(lg) {
           // display: none;
-          bottom: 120px;
+          display: flex;
+          bottom: 0;
           right: 0;
           width: 100%;
-          justify-content: center;
+          justify-content: space-between;
           // transform: translateX(-50%);
         }
       }
@@ -125,16 +137,15 @@
         bottom: 52px;
         // width: 100%;
         z-index: 1;
-        
+
         @include media-breakpoint-up(lg) {
           transform: translateX(-50%);
           left: 50%;
           width: 60%;
-          
         }
 
         @include media-breakpoint-down(lg) {
-          bottom: 0;
+          bottom: 12px;
 
           &-bullet {
             background: rgba(0, 0, 0, 0.2);
@@ -263,7 +274,6 @@
       }
 
       .button {
-
         position: relative;
         padding: 19px;
         color: get($colors, white);

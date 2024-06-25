@@ -91,7 +91,7 @@ block mainContent
         post: 'Менеджер по работе с клиентами'
       },
     ]
-    
+
     controllslist = [
       {
         name: 'Менеджмент',
@@ -123,29 +123,33 @@ block mainContent
       },
     ]
 
-  section.section-bg-white.card__consultation.team__consultation
-    .container
-      h1.team__title Наша команда
-      .consultation__wrapper.element-animation
-        .row.gy-2.gy-lg-0.gx-4
-          .col-12.col-lg-6
-            +lazyImage({
-              imageSrc: 'img/team/team-consultation-img',
-              type: 'background',
-              classes: 'w-100 ratio consultation__image',
-              imageClasses: 'w-100 h-100',
-            })
-          .col-12.col-lg-6
-            .consultation__block
-              .consultation__content
-                h2 STONETREE HOLDING in 2025
-                p Инвестиционная холдинговая компания, базирующаяся в Дубае, ОАЭ. Как многие инвестиционные структуры в регионе, компания может сосредотачиваться на различных секторах, включая недвижимость, технологии, розничную торговлю, энергоносители и др. Информация о частных компаниях часто ограничена и варьируется в зависимости от их публичной или непубличной натуры.
-              a(href="#" class="button button-black")
-                span Вакансии
-  
+  //- section.section-bg-white.card__consultation.team__consultation
+  //-   .container
+  //-     h1.team__title Наша команда
+  //-     .consultation__wrapper.element-animation
+  //-       .row.gy-2.gy-lg-0.gx-4
+  //-         .col-12.col-lg-6
+  //-           +lazyImage({
+  //-             imageSrc: 'img/team/team-consultation-img',
+  //-             type: 'background',
+  //-             classes: 'w-100 ratio consultation__image',
+  //-             imageClasses: 'w-100 h-100',
+  //-           })
+  //-         .col-12.col-lg-6
+  //-           .consultation__block
+  //-             .consultation__content
+  //-               h2 STONETREE HOLDING in 2025
+  //-               p Инвестиционная холдинговая компания, базирующаяся в Дубае, ОАЭ. Как многие инвестиционные структуры в регионе, компания может сосредотачиваться на различных секторах, включая недвижимость, технологии, розничную торговлю, энергоносители и др. Информация о частных компаниях часто ограничена и варьируется в зависимости от их публичной или непубличной натуры.
+  //-             a(href="#" class="button button-black")
+  //-               span Вакансии
+
   section.section-bg-white.home__managers.team__departament
     .container
-      h2.title.title-big.title-section Департаменты
+      .team__top
+        h1.team__title Наша команда
+        a(href="#" class="button button-primary team__button")
+          span Вакансии
+      h2.title.title-big.title-section Люди
       .controlls.element-animation.js-controlls
         .swiper.js-team-controlls-slider
           .swiper-wrapper
@@ -153,6 +157,11 @@ block mainContent
               .swiper-slide
                 div(class=['controlls-item', item.isActive ? 'is-active' : null] data-tab-index=i).js-controlls-item
                   span #{item.name}
+          .slider__navigation
+            .slider__navigation-button.slider__navigation-button-prev
+              +icon('arrow-down')
+            .slider__navigation-button.slider__navigation-button-next
+              +icon('arrow-down')
       .managers__list
         .row.g-3.g-lg-4
           each person in teamList
@@ -167,7 +176,7 @@ block mainContent
                 .managers__item-content
                   h3.managers__item-name #{person.name}
                   p.managers__item-post #{person.post}
-      
+
       .pagination.element-animation
         .pagination__list
           a.pagination__button.pagination__button-prev
@@ -177,5 +186,5 @@ block mainContent
               span(class=i==1 ? 'is-active': null).pagination__item #{i}
           a.pagination__button.pagination__button-next
             +icon('arrow-down')
-  
+
   include ../components/home/consultation

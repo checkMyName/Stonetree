@@ -76,6 +76,12 @@ section.section-bg-more-white.card__gallery.js-gallery
                             imageClasses: 'w-100 h-100',
                           })
 
+                  .slider__navigation
+                    .slider__navigation-button.slider__navigation-button-prev
+                      +icon('arrow-down')
+                    .slider__navigation-button.slider__navigation-button-next
+                      +icon('arrow-down')
+
               .gallery__slider-thumb
                 .swiper.js-gallery-thumb.h-100
                   .swiper-wrapper
@@ -108,6 +114,11 @@ section.section-bg-more-white.card__gallery.js-gallery
                             classes: 'w-100 ratio gallery__slider-item-img',
                             imageClasses: 'w-100 h-100',
                           })
+                  .slider__navigation
+                    .slider__navigation-button.slider__navigation-button-prev
+                      +icon('arrow-down')
+                    .slider__navigation-button.slider__navigation-button-next
+                      +icon('arrow-down')
 
               .gallery__slider-thumb
                 .swiper.js-gallery-thumb.h-100

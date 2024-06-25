@@ -17,9 +17,9 @@ export function informationSlider() {
         spaceBetween: 20,
 
         effect: "fade",
-        fadeEffect: {
-          crossFade: true
-        },
+        // fadeEffect: {
+        //   crossFade: true,
+        // },
 
         autoplay: {
           delay: 3000,

@@ -96,7 +96,7 @@
 
       &-name {
         @include transition;
-        
+
         font-weight: 500;
         font-size: 18px;
         line-height: 20px;
@@ -110,8 +110,22 @@
     }
 
     &__image {
+      position: relative;
       border-radius: 24px;
       overflow: hidden;
+
+      &-item {
+        @include transition;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+
+        &:not(.is-current) {
+          opacity: 0;
+        }
+      }
     }
   }
 }
