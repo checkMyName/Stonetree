@@ -79,84 +79,192 @@ section.home__quiz#quiz
                 +icon('file')
         .col-12.col-lg-6.col-xxl-auto
           form(class=['js-form-validate js-quiz', 'quiz__form'])
-            each step, i in quizStepsList
-              if i != quizStepsList.length - 1
-                div(class=["quiz__form-step", step.state ? step.state : null] data-step-number=i).js-quiz-step
-                  .quiz__form-step-content
-                    h3.quiz__form-title #{step.question}
+            div(class=["quiz__form-step", "is-current"] data-step-number=0).js-quiz-step
+              .quiz__form-step-content
+                h3.quiz__form-title Вы рассматриваете приобретение объекта
 
-                    .quiz__form-questions
-                      each a in step.answers
-                        //- .form__group
-                        .radio.quiz__form-questions-item
-                          input(type='radio' name=`radio-step-${i + 1}` checked=a.isChecked).js-quiz-step-field
-                          span
-                          p.mb-0 #{a.text}
+                .quiz__form-questions
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-1` checked='true').js-quiz-step-field
+                    span
+                    p.mb-0 до 500 тыс $
 
-                  .quiz__form-controlls
-                    button(type="button" class="button button-outline").js-quiz-button
-                      span Следующий вопрос
-                    .quiz__form-controlls-steps
-                      p.mb-0 #[span.me-1 #{i + 1}] из #[span.ms-1 #{quizStepsList.length}]
-              else
-                div(class=["quiz__form-step", step.state ? step.state : null] data-step-number=i).js-quiz-step
-                  //- .quiz__form-logo
-                  //-   +icon('logo')
-                  .quiz__form-step-content
-                    h3.quiz__form-title #{step.question}
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    span
+                    p.mb-0 до 1 млн $
 
-                    .quiz__form-questions
-                      +field({
-                        type: 'text',
-                        placeholder: 'Имя',
-                        classes: '',
-                        validate: true
-                      })
-                      +field({
-                        type: 'phone',
-                        placeholder: 'Телефон',
-                        classes: 'js-phone-mask',
-                        validateLength: 18,
-                        validate: true
-                      })
-                      +field({
-                        type: 'email',
-                        placeholder: 'Почта',
-                        classes: '',
-                      })
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    span
+                    p.mb-0 до 5 млн $
 
-                  .quiz__form-socials
-                    p.quiz__form-socials-title Удобный способ связи
-                    .quiz__form-socials-list
-                      .quiz__form-socials-item
-                        input(type="radio" name="socials")
-                        .quiz__form-socials-content
-                          include ../../components/whatsup
-                          span Whatsapp
-                      .quiz__form-socials-item
-                        input(type="radio" name="socials")
-                        .quiz__form-socials-content
-                          include ../../components/telegram
-                          span Telegram
-                      .quiz__form-socials-item
-                        input(type="radio" name="socials")
-                        .quiz__form-socials-content
-                          include ../../components/phone
-                          span Телефон
-                    //- .quiz__form-socials-list
-                    //-   a(href="#").quiz__form-socials-item
-                    //-     include ../../components/whatsup
-                    //-     span Whatsapp
-                    //-   a(href="#").quiz__form-socials-item
-                    //-     include ../../components/telegram
-                    //-     span Telegram
-                    //-   a(href="#").quiz__form-socials-item
-                    //-     include ../../components/phone
-                    //-     span Телефон
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    span
+                    p.mb-0 более 5 млн $
 
-                  .quiz__form-controlls
-                    button(type="button" class="button button-outline").js-quiz-back
-                      span Назад
-                    button(type="submit" class="button button-black ms-4")
-                      span Готово
+              .quiz__form-controlls
+                button(type="button" class="button button-outline").js-quiz-button
+                  span Следующий вопрос
+            
+            div(class=["quiz__form-step", "is-next"] data-step-number=1).js-quiz-step
+              .quiz__form-step-content
+                h3.quiz__form-title Какой у вас бюджет предполагаемых инвестиций?
+
+                .quiz__form-questions
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-2` checked='true').js-quiz-step-field
+                    span
+                    p.mb-0 В новостройке
+
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-2`).js-quiz-step-field
+                    span
+                    p.mb-0 На вторичном рынке
+
+                  .radio.quiz__form-questions-item
+                    input(type='radio' name=`radio-step-2`).js-quiz-step-field
+                    span
+                    p.mb-0 Оба варианта
+
+              .quiz__form-controlls
+                button(type="button" class="button button-outline").js-quiz-button
+                  span Следующий вопрос
+                button(type="button" class="mt-3 button button-outline").js-quiz-back
+                  span Назад
+
+            div(class=["quiz__form-step"] data-step-number=2).js-quiz-step
+              //- .quiz__form-logo
+              //-   +icon('logo')
+              .quiz__form-step-content
+                h3.quiz__form-title Контактные данные
+
+                .quiz__form-questions
+                  +field({
+                    type: 'text',
+                    placeholder: 'Имя',
+                    classes: '',
+                    validate: true
+                  })
+                  +field({
+                    type: 'phone',
+                    placeholder: 'Телефон',
+                    classes: 'js-phone-mask',
+                    validateLength: 18,
+                    validate: true
+                  })
+                  +field({
+                    type: 'email',
+                    placeholder: 'Почта',
+                    classes: '',
+                  })
+
+              .quiz__form-socials
+                p.quiz__form-socials-title Удобный способ связи
+                .quiz__form-socials-list
+                  .quiz__form-socials-item
+                    input(type="radio" name="socials" checked)
+                    .quiz__form-socials-content
+                      include ../../components/whatsup
+                      span Whatsapp
+                  .quiz__form-socials-item
+                    input(type="radio" name="socials")
+                    .quiz__form-socials-content
+                      include ../../components/telegram
+                      span Telegram
+                  .quiz__form-socials-item
+                    input(type="radio" name="socials")
+                    .quiz__form-socials-content
+                      include ../../components/phone
+                      span Телефон
+
+              .quiz__form-controlls
+                button(type="button" class="button button-outline").js-quiz-back
+                  span Назад
+                button(type="submit" class="button button-black ms-4")
+                  span Готово
+          
+          
+          //- form(class=['js-form-validate js-quiz', 'quiz__form'])
+          //-   each step, i in quizStepsList
+          //-     if i != quizStepsList.length - 1
+          //-       div(class=["quiz__form-step", step.state ? step.state : null] data-step-number=i).js-quiz-step
+          //-         .quiz__form-step-content
+          //-           h3.quiz__form-title #{step.question}
+
+          //-           .quiz__form-questions
+          //-             each a in step.answers
+          //-               //- .form__group
+          //-               .radio.quiz__form-questions-item
+          //-                 input(type='radio' name=`radio-step-${i + 1}` checked=a.isChecked).js-quiz-step-field
+          //-                 span
+          //-                 p.mb-0 #{a.text}
+
+          //-         .quiz__form-controlls
+          //-           button(type="button" class="button button-outline").js-quiz-button
+          //-             span Следующий вопрос
+          //-           .quiz__form-controlls-steps
+          //-             p.mb-0 #[span.me-1 #{i + 1}] из #[span.ms-1 #{quizStepsList.length}]
+          //-     else
+          //-       div(class=["quiz__form-step", step.state ? step.state : null] data-step-number=i).js-quiz-step
+          //-         //- .quiz__form-logo
+          //-         //-   +icon('logo')
+          //-         .quiz__form-step-content
+          //-           h3.quiz__form-title #{step.question}
+
+          //-           .quiz__form-questions
+          //-             +field({
+          //-               type: 'text',
+          //-               placeholder: 'Имя',
+          //-               classes: '',
+          //-               validate: true
+          //-             })
+          //-             +field({
+          //-               type: 'phone',
+          //-               placeholder: 'Телефон',
+          //-               classes: 'js-phone-mask',
+          //-               validateLength: 18,
+          //-               validate: true
+          //-             })
+          //-             +field({
+          //-               type: 'email',
+          //-               placeholder: 'Почта',
+          //-               classes: '',
+          //-             })
+
+          //-         .quiz__form-socials
+          //-           p.quiz__form-socials-title Удобный способ связи
+          //-           .quiz__form-socials-list
+          //-             .quiz__form-socials-item
+          //-               input(type="radio" name="socials" checked)
+          //-               .quiz__form-socials-content
+          //-                 include ../../components/whatsup
+          //-                 span Whatsapp
+          //-             .quiz__form-socials-item
+          //-               input(type="radio" name="socials")
+          //-               .quiz__form-socials-content
+          //-                 include ../../components/telegram
+          //-                 span Telegram
+          //-             .quiz__form-socials-item
+          //-               input(type="radio" name="socials")
+          //-               .quiz__form-socials-content
+          //-                 include ../../components/phone
+          //-                 span Телефон
+          //-           //- .quiz__form-socials-list
+          //-           //-   a(href="#").quiz__form-socials-item
+          //-           //-     include ../../components/whatsup
+          //-           //-     span Whatsapp
+          //-           //-   a(href="#").quiz__form-socials-item
+          //-           //-     include ../../components/telegram
+          //-           //-     span Telegram
+          //-           //-   a(href="#").quiz__form-socials-item
+          //-           //-     include ../../components/phone
+          //-           //-     span Телефон
+
+          //-         .quiz__form-controlls
+          //-           button(type="button" class="button button-outline").js-quiz-back
+          //-             span Назад
+          //-           button(type="submit" class="button button-black ms-4")
+          //-             span Готово
 

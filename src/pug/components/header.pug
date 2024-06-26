@@ -43,10 +43,12 @@ header(class=['header', 'js-header'])
 						//- img(src="img/logo-2.png" alt="logo" class="header__logo-2")
 				.col-auto.d-none.d-lg-block
 					nav.header__nav
-						.row.gx-3.gx-xl-4
-							each link in nav
-								.col-auto
-									a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
+						each link in nav
+							a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
+						//- .row.gx-3.gx-xl-4
+						//- 	each link in nav
+						//- 		.col-auto
+						//- 			a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
 				.col-auto.ms-auto.ms-lg-0
 					.row.gx-3.gx-xl-5.align-items-center
 						.col-auto

@@ -63,13 +63,13 @@ export function newsControllsSlider() {
           touchStart: function () {
             allowClick = true;
 
-            console.log(allowClick);
+            // console.log(allowClick);
           },
 
           touchMove: function () {
             allowClick = false;
 
-            console.log(allowClick);
+            // console.log(allowClick);
           },
 
           touchEnd: function () {

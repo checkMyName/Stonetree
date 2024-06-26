@@ -66,7 +66,7 @@ section.section-bg-more-white.card__gallery.js-gallery
                     span.js-gallery-slider-counter 17
                   .swiper-wrapper
                     each slide in gallerySliderInterierSlides
-                      .swiper-slide
+                      .swiper-slide.js-gallery-opener-main
                         .gallery__slider-item
 
                           +lazyImage({
@@ -106,7 +106,7 @@ section.section-bg-more-white.card__gallery.js-gallery
                     span.js-gallery-slider-counter 17
                   .swiper-wrapper
                     each slide in gallerySliderExterierSlides
-                      .swiper-slide
+                      .swiper-slide.js-gallery-opener-main
                         .gallery__slider-item
                           +lazyImage({
                             imageSrc: slide.imgUrl,

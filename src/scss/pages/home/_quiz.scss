@@ -204,6 +204,17 @@
           z-index: 1;
           // height: 100%;
         }
+
+        &:not(:last-child) {
+
+          .quiz__form-controlls {
+            flex-direction: column;
+
+            .button {
+              width: 100%;
+            }
+          }
+        }
       }
 
       &-questions {
@@ -447,9 +458,11 @@
         // left: 40px;
         display: flex;
         align-items: center;
+        // flex-direction: column;
         // margin-top: auto;
 
         .button {
+          // width: 100%;
           width: 200px;
           border-color: #191919;
 

@@ -60,7 +60,7 @@ block mainContent
 										})
 								.form__block-agreement
 									.checkbox
-										input(type="checkbox" name="agreement")
+										input(type="checkbox" name="agreement" required="true").is-need-validate
 										span
 										p.mb-0 Я даю согласие на обработку персональных данных в соответствии с #[a(href="#" class="text-danger") Политикой конфиденциальности]
 								button(type="submit" class="button button-black")

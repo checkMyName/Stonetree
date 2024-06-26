@@ -147,9 +147,9 @@ block mainContent
     .container
       .team__top
         h1.team__title Наша команда
-        a(href="#" class="button button-primary team__button")
-          span Вакансии
-      h2.title.title-big.title-section Люди
+        .d-none.d-lg-block
+          a(href="#" class="button button-primary team__button")
+            span Вакансии
       .controlls.element-animation.js-controlls
         .swiper.js-team-controlls-slider
           .swiper-wrapper
@@ -176,6 +176,10 @@ block mainContent
                 .managers__item-content
                   h3.managers__item-name #{person.name}
                   p.managers__item-post #{person.post}
+      
+      .d-block.d-lg-none
+        a(href="#" class="button button-primary team__button")
+            span Вакансии
 
       .pagination.element-animation
         .pagination__list

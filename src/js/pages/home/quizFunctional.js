@@ -34,18 +34,20 @@ export function quizFunctional() {
   const stepsStateHandler = () => {
 
     stepsClassCleaber();
-    
+
     stepsElements.forEach((element, i) => {
       if (hasClass(element, currentClassName)) {
 
-        if (stepsElements[i-1]) {
+        currentStepElement = element;
+
+        if (stepsElements[i - 1]) {
 
           prevStepElement = stepsElements[i - 1];
 
           addClass(stepsElements[i - 1], prevClassName);
 
         }
-        
+
         if (stepsElements[i + 1]) {
 
           nextStepElement = stepsElements[i + 1];
@@ -103,9 +105,13 @@ export function quizFunctional() {
 
   const backStepHandler = () => {
 
-    removeClass(stepsElements[stepsElements.length - 1], currentClassName);
+    console.log(currentStepElement);
 
-    addClass(stepsElements[1], currentClassName);
+    const currentId = attr(currentStepElement, dataStepNumber)
+
+    removeClass(stepsElements[currentId], currentClassName);
+
+    addClass(stepsElements[currentId - 1], currentClassName);
 
     stepsStateHandler();
   }
@@ -120,11 +126,11 @@ export function quizFunctional() {
       $events.delegate
         .on('click', quizButtonSelector, nextStepHandler)
         .on('click', quizBackSelector, backStepHandler)
-     },
+    },
     onDestroy() {
       $events.delegate
         .off('click', quizButtonSelector, nextStepHandler)
         .off('click', quizBackSelector, backStepHandler)
-     }
+    }
   })
 }

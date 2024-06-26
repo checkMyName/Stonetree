@@ -35,6 +35,7 @@ export function introSlider() {
         slidesPerView: 1,
         speed: 700,
         spaceBetween: 20,
+        loop: true,
 
         effect: "fade",
         fadeEffect: {

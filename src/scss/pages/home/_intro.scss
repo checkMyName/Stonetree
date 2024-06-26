@@ -124,8 +124,9 @@
 		width: 224px;
 		padding: 20px;
 		background: rgba(252, 252, 252, 0.1);
-		opacity: 1;
-		backdrop-filter: blur(7.5px);
+		// opacity: 1;
+		// backdrop-filter: blur(7.5px);
+		backdrop-filter: blur(1.5px);
 		border-radius: 16px;
 		user-select: none;
 
@@ -171,6 +172,10 @@
 			letter-spacing: -0.065em;
 			color: get($colors, alabaster);
 			width: 90%;
+
+			@include media-breakpoint-down(lg) {
+				width: 80%;
+			}
 		}
 
 		.svg-icon {

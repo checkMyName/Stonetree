@@ -160,20 +160,18 @@ export function sqrtDropdown() {
 
     addClass(target, selected);
 
-    console.log(currentElement.parentNode.parentNode.parentNode);
+    // console.log(currentElement.parentNode.parentNode.parentNode);
 
     const value = attr(target, dataValue);
     // const value = target.innerHTML;
     
     const rowsList = getAll(catalogTableRowSelector, currentElement.parentNode.parentNode.parentNode);
 
-    console.log(rowsList);
-    console.log(value);
+    // console.log(rowsList);
+    // console.log(value);
 
     // const dataNumberMeters = 'data-number-m';
     // const dataNumberSqrt = 'data-number-sqrt';
-
-    
 
     switch (value) {
       case 'meters': {
@@ -188,7 +186,11 @@ export function sqrtDropdown() {
     }
     // const numberElement = get(catalogTableNumberSelector, currentElement.parentNode.parentNode);
 
-    // get('span', currentElement).innerHTML = value;
+    get('span', currentElement).innerHTML = target.innerHTML;
+
+    // console.log(target.innerHTML);
+    // console.log(currentElement);
+    // console.log(get('span', currentElement).innerHTML);
     // numberElement.innerHTML = number;
 
     closeDropdown();

@@ -31,8 +31,8 @@ export function catalogFunctional() {
     toggleClass(item, active);
   }
 
-  const itemPriceListCleaner = () => {
-    getAll(catalogItemPriceElemSelector).forEach(element => {
+  const itemPriceListCleaner = (list) => {
+    list.forEach(element => {
       removeClass(element, active);
     });
   }
@@ -40,18 +40,18 @@ export function catalogFunctional() {
   const itemPriceClickHandler = event => {
     const target = event.target.closest(catalogItemPriceElemSelector);
 
-    console.log(target);
+    // console.log(target.parentNode.parentNode);
 
     if (!event.target.closest(catalogItemPriceElemSelector)) return
+
+    const pricesList = getAll(catalogItemPriceElemSelector, target.parentNode.parentNode);
     
     const value = attr(target, dataValue);
     const number = get(catalogItemPriceValueSelector, target.parentNode.parentNode)
 
-    console.log(value);
-
     number.innerHTML = value;
 
-    itemPriceListCleaner();
+    itemPriceListCleaner(pricesList);
     addClass(target, active);
 
   }

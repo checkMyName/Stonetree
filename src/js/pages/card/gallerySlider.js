@@ -25,6 +25,7 @@ const galleryTabSelector = '.js-gallery-tab';
 const galleryTabItemSelector = '.js-gallery-tab-item';
 
 const galleryOpenerSelector = '.js-gallery-opener';
+const galleryOpenerMainSelector = '.js-gallery-opener-main';
 
 const dataTabIndex = 'data-tab-index';
 
@@ -45,6 +46,7 @@ export function gallerySlider() {
       modules: [Thumbs, Navigation],
       spaceBetween: 8,
       slidesPerView: 1,
+      loop: true,
 
       // breakpoints: {
       //   320: {
@@ -178,21 +180,50 @@ export function gallerySlider() {
   }
 
   const tabItemClickHandler = event => {
-    const target = event.target.closest(galleryOpenerSelector);
+    let target = event.target;
 
-    console.log(target);
+    // console.log(target);
     
     // if (!allowClick) return;
+
+    if (event.target.closest(galleryOpenerSelector)) {
+      target = event.target.closest(galleryOpenerSelector);
+
+      console.log(target.parentNode);
+
+      const itemSliderContent = get('.swiper-wrapper', target.parentNode).innerHTML;
+
+      get(galleryModalSliderWrapperSelector).innerHTML = itemSliderContent;
+
+      modalSliderElement = iniModaltSlider(galleryModalSliderSelector);
+
+      galleryModalElement.show();
+
+      currentPage.components.lazyLoad.init();
+
+      return;
+    }
     
-    const itemSliderContent = get('.swiper-wrapper', target.parentNode).innerHTML;
+    if (event.target.closest(galleryOpenerMainSelector)) {
+      target = event.target.closest(galleryOpenerMainSelector);
 
-    get(galleryModalSliderWrapperSelector).innerHTML = itemSliderContent;
+      console.log(target);
+      console.log(target.parentNode);
 
-    modalSliderElement = iniModaltSlider(galleryModalSliderSelector);
+      const itemSliderContent = get('.swiper-wrapper', target.parentNode.parentNode).innerHTML;
 
-    galleryModalElement.show();
+      get(galleryModalSliderWrapperSelector).innerHTML = itemSliderContent;
 
-    currentPage.components.lazyLoad.init();
+      modalSliderElement = iniModaltSlider(galleryModalSliderSelector);
+
+      galleryModalElement.show();
+
+      currentPage.components.lazyLoad.init();
+
+      return;
+    }
+    
+    
   }
 
   return new Component({
@@ -205,7 +236,7 @@ export function gallerySlider() {
 
       $events.delegate
         .on('click', galleryControllsSelector, tabsClickHandler)
-        .on('click', galleryOpenerSelector, tabItemClickHandler)
+        .on('click', gallerySliderSelector, tabItemClickHandler)
     },
     onDestroy() {
       if (initSlider() instanceof Swiper) {
@@ -219,7 +250,7 @@ export function gallerySlider() {
 
       $events.delegate
         .off('click', galleryControllsSelector, tabsClickHandler)
-        .off('click', galleryOpenerSelector, tabItemClickHandler);
+        .off('click', gallerySliderSelector, tabItemClickHandler);
     }
   })
 }
