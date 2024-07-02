@@ -117,25 +117,45 @@ block mainContent
       .news__wrapper
         .news__list
           each item in newsItemsList
-            a(href="#" class=['news__item', `news__item--${item.itemType}`]).element-animation
-              if item.imgUrl
-                +lazyImage({
-                  imageSrc: item.imgUrl,
-                  type: 'background',
-                  classes: 'w-100 ratio news__item-bg',
-                  imageClasses: 'w-100 h-100',
-                })
-              .news__item-top
-                span.news__item-top-type #{item.type}
-                span.news__item-top-date #{item.date}
-              .news__item-content
-                h3.news__item-title #{item.title}
-                if item.desc
-                  p.news__item-desc #{item.desc}
-              .news__item-time
-                +icon('book')
-                span 5 минут
-      
+            a(href="#" class=['news__item', item.itemType == 'small' ? 'ratio' : null,  `news__item--${item.itemType}`]).element-animation
+              if item.itemType == 'small'
+                .news__item-block
+                  if item.imgUrl
+                    +lazyImage({
+                      imageSrc: item.imgUrl,
+                      type: 'background',
+                      classes: 'w-100 ratio news__item-bg',
+                      imageClasses: 'w-100 h-100',
+                    })
+                  .news__item-top
+                    span.news__item-top-type #{item.type}
+                    span.news__item-top-date #{item.date}
+                  .news__item-content
+                    h3.news__item-title #{item.title}
+                    if item.desc
+                      p.news__item-desc #{item.desc}
+                  .news__item-time
+                    +icon('book')
+                    span 5 минут
+              else
+                if item.imgUrl
+                  +lazyImage({
+                    imageSrc: item.imgUrl,
+                    type: 'background',
+                    classes: 'w-100 ratio news__item-bg',
+                    imageClasses: 'w-100 h-100',
+                  })
+                  .news__item-top
+                    span.news__item-top-type #{item.type}
+                    span.news__item-top-date #{item.date}
+                  .news__item-content
+                    h3.news__item-title #{item.title}
+                    if item.desc
+                      p.news__item-desc #{item.desc}
+                  .news__item-time
+                    +icon('book')
+                    span 5 минут
+
       .pagination.element-animation
         .pagination__list
           a.pagination__button.pagination__button-prev

@@ -59,7 +59,7 @@ export function formValidation() {
         if (isElement(field)) {
           const { valid, error } = this.validator.checkField(field);
 
-          console.log(valid);
+          // console.log(valid);
         }
       };
 

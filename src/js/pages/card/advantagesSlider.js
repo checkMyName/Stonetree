@@ -14,6 +14,7 @@ export function advantagesSlider() {
         modules: [Pagination, Navigation, Grid],
         // speed: 700,
         // spaceBetween: 20,
+        // loop: true,
         
         breakpoints: {
           320: {

@@ -92,22 +92,25 @@ section.home__intro
               validate: true
             })
           .col-12
-            +field({
-              type: 'phone',
-              placeholder: 'Телефон',
-              classes: 'js-phone-mask',
-              validateLength: 18,
-              validate: true
-            })
+            +phoneField
+            //- div(class="form__group mask js-mask js-group-validate is-need-validate is-invalid")
+            //-   div(data-current-country="RU").mask__switcher.js-mask-switcher
+            //-     .mask__switcher-button.js-mask-switcher-button
+            //-       img(src="img/flags/flag-russia.png" alt="flag")
+            //-       +icon('arrow-down')
+            //-     .mask__switcher-content
+            //-       input(type="search" name="country-search" placeholder="Поиск").js-mask-switcher-search
+            //-       .mask__switcher-list.js-mask-switcher-content
+            //-   input(class="js-phone-mask js-field-validate" type="tel", required placeholder="Телефон")
           .col-12
             +field({
               type: 'email',
               placeholder: 'Почта',
-              classes: '',
+              classes: 'js-email-mask',
             })
         .form__block-agreement
           .checkbox
-            input(type="checkbox" name="agreement" required="true").is-need-validate
+            input(type="checkbox" name="agreement" required).is-need-validate
             span
             p.mb-0 Я даю согласие на обработку персональных данных в соответствии с #[a(href="#" class="text-danger") Политикой конфиденциальности]
 

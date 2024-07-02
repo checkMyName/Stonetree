@@ -17,6 +17,7 @@
         flex-direction: row;
         align-items: center;
         border-radius: 20px;
+        padding: 12px;
       }
 
       &-photo {
@@ -55,7 +56,13 @@
         }
 
         @include media-breakpoint-down(lg) {
+          // margin-bottom: 12px;
+          margin-bottom: 22px;
+        }
+        
+        @include media-breakpoint-down(md) {
           margin-bottom: 12px;
+          // margin-bottom: 22px;
         }
       }
 

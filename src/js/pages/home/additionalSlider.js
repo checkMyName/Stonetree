@@ -15,6 +15,7 @@ export function additionalSlider() {
         // slidesPerView: 1.3,
         speed: 700,
         // spaceBetween: 20,
+        loop: true,
 
         breakpoints: {
           320: {

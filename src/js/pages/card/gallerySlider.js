@@ -69,6 +69,7 @@ export function gallerySlider() {
         slideThumbActiveClass: active,
         autoScrollOffset: 1,
         swiper: new Swiper(`${currentItem} ${galleryThumbSelector}`, {
+          loop: true,
 
           breakpoints: {
             320: {
@@ -139,6 +140,7 @@ export function gallerySlider() {
     return new Swiper(selector, {
       modules: [Navigation, Pagination],
       slidesPerView: 1,
+      loop: true,
 
       navigation: {
         nextEl: '.slider__navigation-button-next',
@@ -147,7 +149,10 @@ export function gallerySlider() {
 
       pagination: {
         el: '.swiper-pagination',
-        type: 'fraction',
+        type: 'custom',
+        renderCustom: function (swiper, current, total) {
+          return `<span>${current}</span> <span>из</span> <span>${(total)}</span>`;
+        }
       }
     })
   }

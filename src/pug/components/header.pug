@@ -20,7 +20,8 @@ header(class=['header', 'js-header'])
 			},
 			{
 				name: 'Карьера',
-				href: 'https://stonetree.peopleforce.io/careers'
+				href: 'https://stonetree.peopleforce.io/careers',
+				isNewPage: true,
 			},
 		]
 
@@ -44,7 +45,7 @@ header(class=['header', 'js-header'])
 				.col-auto.d-none.d-lg-block
 					nav.header__nav
 						each link in nav
-							a(href=link.href data-anchor=link.href class="link-highlight header__nav-link").js-menu-link #{link.name}
+							a(href=link.href data-anchor=link.href class=["link-highlight header__nav-link", link.isNewPage ? null : 'js-menu-link'] target=link.isNewPage ? "_blank" : null) #{link.name}
 						//- .row.gx-3.gx-xl-4
 						//- 	each link in nav
 						//- 		.col-auto
@@ -69,16 +70,16 @@ header(class=['header', 'js-header'])
 	.header__menu
 		.container
 			each link in nav
-				a(href=link.href data-anchor=link.href class="link-highlight header__menu-link").js-menu-link #{link.name}
+				a(href=link.href data-anchor=link.href class="link-highlight header__menu-link" target=link.isNewPage ? "_blank" : null).js-menu-link #{link.name}
 			.row
 				.col-auto
 					.header__langswitcher.js-langswitcher
 						.header__langswitcher-item.is-active.js-langswitcher-item
-							input(id="langswitcher-ru" type="radio" name="langswitche-menu" checked)
-							label(for="langswitcher-ru") Ru
+							input(id="langswitcher-ru-2" type="radio" name="langswitche-menu" checked)
+							label(for="langswitcher-ru-2") Ru
 						.header__langswitcher-item.js-langswitcher-item
-							input(id="langswitcher-ru" type="radio" name="langswitche-menu")
-							label(for="langswitcher-ru") En
+							input(id="langswitcher-ru-2" type="radio" name="langswitche-menu")
+							label(for="langswitcher-ru-2") En
 			.footer__socials
 				each icon in headerSocials
 					.footer__socials-icon

@@ -25,6 +25,7 @@ const variables = {
     selected: 'is-selected',
     current: 'is-current',
     validating: 'is-validating',
+    hidden: 'is-hidden',
   },
   formValidationMessages: {
     invalid         : 'Некорректное значение',

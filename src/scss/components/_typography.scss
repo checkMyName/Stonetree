@@ -4,6 +4,8 @@
 .title {
   color: #191919;
 
+  user-select: none;
+
   &-big {
     font-size: 32px;
     font-weight: 500;

@@ -14,18 +14,22 @@ export function layoutsSlider() {
         modules: [Pagination, Navigation],
         // speed: 700,
         // spaceBetween: 20,
+        
 
         breakpoints: {
           320: {
             slidesPerView: 1,
+            loop: true,
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 20
+            spaceBetween: 20,
+            loop: true,
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 20
+            spaceBetween: 20,
+            loop: false,
           },
           1200: {
             slidesPerView: 4,

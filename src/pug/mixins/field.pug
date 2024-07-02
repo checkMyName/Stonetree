@@ -118,3 +118,18 @@ mixin field(data)
 					data-validate-linked=data.validateLinked || null
 					pattern=data.pattern || null
 				)
+
+
+mixin phoneField()
+	div(class="form__group mask js-mask js-group-validate is-need-validate")
+		div(data-current-country="RU").mask__switcher.js-mask-switcher
+			.mask__switcher-button.js-mask-switcher-button
+				//- img(src="img/flags/flag-russia.png" alt="flag")
+				.mask__switcher-button-icon.js-mask-switcher-button-icon
+					+icon('ru')
+				.mask__switcher-button-arrow
+					+icon('arrow-down')
+			.mask__switcher-content
+				input(type="search" name="country-search" placeholder="Поиск").js-mask-switcher-search
+				.mask__switcher-list.js-mask-switcher-content
+		input(class="js-phone-mask js-field-validate" type="text", required placeholder="Телефон")

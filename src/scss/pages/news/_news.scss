@@ -77,7 +77,7 @@
       }
 
       &-button {
-        border: 1px solid #191919
+        border: 1px solid #191919;
       }
     }
 
@@ -108,18 +108,20 @@
     grid-template-rows: 240px 240px 360px 360px;
 
     @include media-breakpoint-down(xl) {
-        grid-template-rows: 200px 200px 200px 440px 440px 440px 440px 440px;
-      }
+      // grid-template-rows: 200px 200px 200px 440px 440px 440px 440px 440px;
+      // grid-template-rows: 200px 200px auto 440px 440px 440px 440px 440px;
+      // grid-template-rows: 200px 200px auto auto auto auto auto auto;
+      grid-template-rows: 200px 200px auto auto auto;
+    }
 
-      @include media-breakpoint-down(lg) {
-        display: block;
-        // grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
-      }
+    @include media-breakpoint-down(lg) {
+      display: block;
+      // grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
+    }
   }
 
   .news__item {
-
-    padding-bottom: 24px;
+    // padding-bottom: 24px;
 
     @include media-breakpoint-down(lg) {
       padding-bottom: 20px;
@@ -172,23 +174,45 @@
         grid-area: 3 / 2 / 4 / 3;
       }
       &:nth-child(4) {
-        grid-area: 4 / 1 / 5 / 3;
+        grid-area: 4 / 1 / 5 / 2;
       }
       &:nth-child(5) {
-        grid-area: 5 / 1 / 6 / 3;
+        grid-area: 4 / 2 / 5 / 3;
       }
       &:nth-child(6) {
-        grid-area: 6 / 1 / 7 / 3;
+        grid-area: 5 / 1 / 6 / 2;
       }
       &:nth-child(7) {
-        grid-area: 7 / 1 / 8 / 3;
+        grid-area: 5 / 2 / 6 / 3;
       }
-      &:nth-child(8) {
-        grid-area: 8 / 1 / 9 / 3;
-      }
-      &:nth-child(9) {
-        grid-area: 9 / 1 / 10 / 3;
-      }
+
+      // &:nth-child(1) {
+      //   grid-area: 1 / 1 / 3 / 3;
+      // }
+      // &:nth-child(2) {
+      //   grid-area: 3 / 1 / 4 / 2;
+      // }
+      // &:nth-child(3) {
+      //   grid-area: 3 / 2 / 4 / 3;
+      // }
+      // &:nth-child(4) {
+      //   grid-area: 4 / 1 / 5 / 3;
+      // }
+      // &:nth-child(5) {
+      //   grid-area: 5 / 1 / 6 / 3;
+      // }
+      // &:nth-child(6) {
+      //   grid-area: 6 / 1 / 7 / 3;
+      // }
+      // &:nth-child(7) {
+      //   grid-area: 7 / 1 / 8 / 3;
+      // }
+      // &:nth-child(8) {
+      //   grid-area: 8 / 1 / 9 / 3;
+      // }
+      // &:nth-child(9) {
+      //   grid-area: 9 / 1 / 10 / 3;
+      // }
     }
   }
 
@@ -207,8 +231,6 @@
 
     &__list {
       // grid-template-rows: 240px 240px 360px 360px;
-
-      
     }
 
     &__item {

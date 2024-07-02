@@ -38,7 +38,7 @@
 		.form__block {
 			max-width: 100%;
 			padding: 40px;
-			
+
 			@include media-breakpoint-up(lg) {
 				height: 488px;
 			}
@@ -93,12 +93,9 @@
 	}
 
 	&--brochure {
-
 		.form__block {
-			
 			@include media-breakpoint-up(lg) {
 				height: 208px;
-
 			}
 		}
 
@@ -166,7 +163,6 @@
 	}
 
 	&--gallery {
-
 		.gallery__modal {
 			position: relative;
 			max-width: 100%;
@@ -192,6 +188,27 @@
 			}
 
 			.swiper-pagination {
+				border-radius: 16px;
+				padding: 13px 16px;
+				background-color: white;
+				width: fit-content;
+				margin: 0 auto;
+				left: 50%;
+				transform: translateX(-50%);
+
+				span {
+					&:not(:first-child) {
+						color: #aeaeae;
+					}
+				}
+				@include media-breakpoint-down(lg) {
+					border-radius: 8px;
+					padding: 6px 8px;
+
+					span {
+						font-size: 12px;
+					}
+				}
 			}
 
 			.slider__navigation {
@@ -220,7 +237,7 @@
 							right: 10px;
 						}
 					}
-					
+
 					@include media-breakpoint-down(lg) {
 						top: calc(50% - 16px);
 						&-prev {
@@ -247,7 +264,6 @@
 					max-width: 100%;
 					padding: 0 8px;
 				}
-				
 			}
 
 			&-content {

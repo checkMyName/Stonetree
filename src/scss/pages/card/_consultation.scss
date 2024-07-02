@@ -7,7 +7,7 @@
     &__wrapper {
       background: rgba(229, 229, 229, 0.21);
       padding: 12px;
-      border-radius: 20px;      
+      border-radius: 20px;
     }
 
     &__image {
@@ -37,6 +37,10 @@
         letter-spacing: -0.055em;
         color: #191919;
 
+        @include media-breakpoint-down(xl) {
+          font-size: 32px;
+        }
+
         @include media-breakpoint-down(lg) {
           font-size: 20px;
         }
@@ -49,6 +53,10 @@
         color: #191919;
         margin-top: 16px;
 
+        @include media-breakpoint-down(xl) {
+          font-size: 18px;
+        }
+
         @include media-breakpoint-down(lg) {
           font-size: 16px;
           margin-bottom: 40px;
@@ -56,10 +64,8 @@
       }
 
       .button {
-        
         @include media-breakpoint-up(lg) {
           max-width: 285px;
-
         }
       }
     }

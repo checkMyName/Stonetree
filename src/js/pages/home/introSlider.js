@@ -13,15 +13,17 @@ const introBgSelector = '.js-intro-bg-element';
 
 export function introSlider() {
 
-  const handleSlideChange = event => {
+  const bgImagesList = getAll(introBgSelector);
 
-    const bgImagesList = getAll(introBgSelector);
+  const handleSlideChange = event => {
+    
+    // console.log(event.activeIndex);
 
     bgImagesList.forEach(element => {
       removeClass(element, current)
     });
 
-    addClass(bgImagesList[event.activeIndex], current);
+    addClass(bgImagesList[event.realIndex], current);
   }
 
   return new Component({

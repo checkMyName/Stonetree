@@ -65,6 +65,7 @@ export function catalogFunctional() {
       this.catalogSlider = new Swiper(catalogItemSliderSelector, {
         modules: [Navigation, Pagination],
         spaceBetween: 20,
+        loop: true,
 
         navigation: {
           nextEl: '.catalog__item-slider-navigation-next',

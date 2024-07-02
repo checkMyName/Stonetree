@@ -21,6 +21,7 @@ import { shareFunctional } from '../components/shareFunctional';
 import { phoneMask } from '../components/phoneMask';
 import { sectionAnimation } from '../components/sectionAnimation';
 import { sqrtDropdown } from '../components/sqrtDropdown';
+import { emailMask } from '../components/emailMask';
 const {merge} = $data;
 
 export default class Page extends Model {
@@ -169,6 +170,7 @@ export default class Page extends Model {
 				.addComponent(controlls)
 				.addComponent(shareFunctional)
 				.addComponent(phoneMask)
+				// .addComponent(emailMask)
 				.addComponent(sqrtDropdown)
 				// .addComponent(sectionAnimation)
 			;

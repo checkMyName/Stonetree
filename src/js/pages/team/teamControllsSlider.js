@@ -40,6 +40,7 @@ export function teamControllsSlider() {
     if (window.innerWidth <= 991) {
       teamSliderElement = new Swiper(teamControllsSliderSelector, {
         modules: [Grid, Navigation],
+        // loop: true,
 
         navigation: {
           nextEl: '.slider__navigation-button-next',

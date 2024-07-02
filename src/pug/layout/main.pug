@@ -31,12 +31,20 @@ html(lang='ru')
 				div(class='page__content')
 					include ../components/header
 					main
+						template#mask-switcher-item
+							div(data-mask='{{_mask}}' data-start-with='{{_start_with}}' data-country='{{name_ru}}' data-country-short='{{cc}}' data-flag='{{country_flag}}.png' class=['mask__switcher-item']).js-mask-switcher-item
+								//- img(src="img/flags/{{_cc}}.svg" alt="flag")
+								.icon
+									+icon('{{_cc}}')
+								//- +icon('ad')
+								span.country {{name_ru}}
+								span.start {{__start_with}}
+
 						block mainContent
 				include ../components/footer
 		include ../components/modal/form
 		include ../components/modal/brochure
 		include ../components/modal/gallery
-		//- include ../components/menu
 
 		script(src='js/vendors.js')
 		script(src='js/main.js')

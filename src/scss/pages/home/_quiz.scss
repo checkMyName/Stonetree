@@ -116,6 +116,7 @@
       padding: 40px;
       background: #fcfcfc;
       border-radius: 32px;
+      // height: 562px;
       height: 562px;
       overflow: hidden;
 
@@ -124,6 +125,7 @@
       }
 
       @include media-breakpoint-down(xxl) {
+        height: 480px;
         padding: 20px;
       }
 
@@ -140,6 +142,7 @@
       &-title {
         font-size: 28px;
         font-weight: 600;
+        width: 85%;
 
         @include media-breakpoint-down(xxl) {
           font-size: 20px;
@@ -208,10 +211,14 @@
         &:not(:last-child) {
 
           .quiz__form-controlls {
-            flex-direction: column;
+            gap: 8px;
+            justify-content: space-between;
+            // flex-direction: column;
 
             .button {
-              width: 100%;
+              flex-grow: 1;
+              flex-shrink: 0;
+              width: 50%;
             }
           }
         }
@@ -481,6 +488,9 @@
         }
 
         &-steps {
+          position: absolute;
+          top: 0;
+          right: 0;
           margin-left: 20px;
           padding: 9px 12px;
 

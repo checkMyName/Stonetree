@@ -130,6 +130,14 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 40px;
+
+      .button {
+        
+        @include media-breakpoint-up(lg) {
+          width: 230px;
+
+        }
+      }
     }
 
     &__title {
@@ -160,7 +168,7 @@
 
   .slider__navigation {
     position: absolute;
-    top: -75px;
+    top: -81px;
     right: 0;
 
     @include media-breakpoint-up(lg) {

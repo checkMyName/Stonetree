@@ -13,6 +13,8 @@
     &__item {
       transition: all 0.3s ease-in-out;
 
+      display: flex;
+      flex-direction: column;
       padding: 30px;
       background: #f6f6f6;
       border-radius: 24px;
@@ -74,6 +76,8 @@
         letter-spacing: -0.055em;
         color: #191919;
 
+        user-select: none;
+
         @include media-breakpoint-down(lg) {
           font-size: 20px;
         }
@@ -88,6 +92,8 @@
         letter-spacing: -0.05em;
         color: #686868;
 
+        user-select: none;
+
         @include media-breakpoint-down(lg) {
           font-size: 14px;
           margin-bottom: 68px;
@@ -98,6 +104,7 @@
         transition: all 0.3s ease-in-out;
 
         width: 200px;
+        margin-top: auto;
 
         @include media-breakpoint-down(lg) {
           width: 100%;

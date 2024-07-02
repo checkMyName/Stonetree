@@ -117,6 +117,7 @@
           display: flex;
           justify-content: space-between;
           padding: 8px 0;
+          width: 100%;
 
           p {
             margin-bottom: 0;
@@ -126,6 +127,7 @@
               line-height: 100%;
               letter-spacing: -0.045em;
               color: #767676;
+              width: 56%;
             }
 
             &:last-child {

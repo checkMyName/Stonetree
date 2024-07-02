@@ -42,6 +42,7 @@ export function newsControllsSlider() {
     onInit() {
       this.newsControllsElementSlider = new Swiper(newsControllsSliderSelector, {
         modules: [Navigation],
+        // loop: true,
 
         breakpoints: {
           320: {

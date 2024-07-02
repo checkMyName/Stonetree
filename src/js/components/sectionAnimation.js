@@ -58,7 +58,9 @@ export function sectionAnimation() {
     name: 'sectionAnimation',
     requiredTargets: pageWrapper,
     onCreate() { },
-    onInit() { },
+    onInit() {
+      
+     },
     onDestroy() { }
   })
 }

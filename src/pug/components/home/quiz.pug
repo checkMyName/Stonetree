@@ -81,31 +81,37 @@ section.home__quiz#quiz
           form(class=['js-form-validate js-quiz', 'quiz__form'])
             div(class=["quiz__form-step", "is-current"] data-step-number=0).js-quiz-step
               .quiz__form-step-content
-                h3.quiz__form-title Вы рассматриваете приобретение объекта
+                h3.quiz__form-title Вы рассматриваете приобретение объекта?
 
                 .quiz__form-questions
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-1` checked='true').js-quiz-step-field
+                    input(type='radio' name=`property_type` value='0' checked='true').js-quiz-step-field
                     span
                     p.mb-0 до 500 тыс $
 
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    input(type='radio' name=`property_type` value='1').js-quiz-step-field
                     span
                     p.mb-0 до 1 млн $
 
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    input(type='radio' name=`property_type` value='2').js-quiz-step-field
                     span
                     p.mb-0 до 5 млн $
 
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-1`).js-quiz-step-field
+                    input(type='radio' name=`property_type` value='3').js-quiz-step-field
                     span
                     p.mb-0 более 5 млн $
 
+                .quiz__form-controlls-steps
+                  p.mb-0 
+                    span 1 
+                    span.mx-2 из 
+                    span #{quizStepsList.length}
+
               .quiz__form-controlls
-                button(type="button" class="button button-outline").js-quiz-button
+                button(type="button" class="button button-black").js-quiz-button
                   span Следующий вопрос
             
             div(class=["quiz__form-step", "is-next"] data-step-number=1).js-quiz-step
@@ -114,25 +120,31 @@ section.home__quiz#quiz
 
                 .quiz__form-questions
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-2` checked='true').js-quiz-step-field
+                    input(type='radio' name=`budget_type` value='0' checked='true').js-quiz-step-field
                     span
                     p.mb-0 В новостройке
 
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-2`).js-quiz-step-field
+                    input(type='radio' name=`budget_type` value='1').js-quiz-step-field
                     span
                     p.mb-0 На вторичном рынке
 
                   .radio.quiz__form-questions-item
-                    input(type='radio' name=`radio-step-2`).js-quiz-step-field
+                    input(type='radio' name=`budget_type` value='2').js-quiz-step-field
                     span
                     p.mb-0 Оба варианта
 
+                .quiz__form-controlls-steps
+                  p.mb-0 
+                    span 2 
+                    span.mx-2 из 
+                    span #{quizStepsList.length}
+
               .quiz__form-controlls
-                button(type="button" class="button button-outline").js-quiz-button
-                  span Следующий вопрос
-                button(type="button" class="mt-3 button button-outline").js-quiz-back
+                button(type="button" class="button button-outline").js-quiz-back
                   span Назад
+                button(type="button" class="button button-black").js-quiz-button
+                  span Далее
 
             div(class=["quiz__form-step"] data-step-number=2).js-quiz-step
               //- .quiz__form-logo
@@ -141,40 +153,48 @@ section.home__quiz#quiz
                 h3.quiz__form-title Контактные данные
 
                 .quiz__form-questions
-                  +field({
-                    type: 'text',
-                    placeholder: 'Имя',
-                    classes: '',
-                    validate: true
-                  })
-                  +field({
-                    type: 'phone',
-                    placeholder: 'Телефон',
-                    classes: 'js-phone-mask',
-                    validateLength: 18,
-                    validate: true
-                  })
-                  +field({
-                    type: 'email',
-                    placeholder: 'Почта',
-                    classes: '',
-                  })
+                  .form__group.js-group-validate.is-need-validate
+                    input.form__field.js-field-validate(type='text' required placeholder='Имя' name="name")
+                  //- +field({
+                  //-   type: 'text',
+                  //-   placeholder: 'Имя',
+                  //-   classes: '',
+                  //-   validate: true
+                  //- })
+                  +phoneField()
+                  //- .form__group.js-group-validate.is-need-validate
+                  //-   input.form__field.js-phone-mask.js-field-validate(type='tel' required placeholder='Телефон' data-validate-length='18' name="phone")
+                  //- +field({
+                  //-   type: 'tel',
+                  //-   placeholder: 'Телефон',
+                  //-   classes: 'js-phone-mask',
+                  //-   validateLength: 18,
+                  //-   validate: true
+                  //- })
+                  .form__group
+                    input.form__field(type='email' placeholder='Почта' name="email")
+
+                  //- +field({
+                  //-   type: 'email',
+                  //-   placeholder: 'Почта',
+                  //-   classes: '',
+                  //- })
 
               .quiz__form-socials
                 p.quiz__form-socials-title Удобный способ связи
                 .quiz__form-socials-list
                   .quiz__form-socials-item
-                    input(type="radio" name="socials" checked)
+                    input(type="radio" name="social" value="WhatsApp" checked)
                     .quiz__form-socials-content
                       include ../../components/whatsup
                       span Whatsapp
                   .quiz__form-socials-item
-                    input(type="radio" name="socials")
+                    input(type="radio" name="social" value="Telegram")
                     .quiz__form-socials-content
                       include ../../components/telegram
                       span Telegram
                   .quiz__form-socials-item
-                    input(type="radio" name="socials")
+                    input(type="radio" name="social" value="Telephone call")
                     .quiz__form-socials-content
                       include ../../components/phone
                       span Телефон
