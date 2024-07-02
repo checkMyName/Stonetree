@@ -53,6 +53,32 @@
           margin-top: 25px;
         }
       }
+
+      .mask__switcher-item {
+        padding-left: 8px;
+        padding-right: 8px;
+
+        .svg-icon {
+          @include media-breakpoint-down(lg) {
+            width: 14px;
+            height: 10px;
+          }
+        }
+
+        .country {
+          @include media-breakpoint-down(lg) {
+            font-size: 10px;
+            margin-left: 4px;
+            margin-right: 4px;
+          }
+        }
+
+        .start {
+          @include media-breakpoint-down(lg) {
+            font-size: 9px;
+          }
+        }
+      }
     }
 
     &__block {

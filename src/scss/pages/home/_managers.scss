@@ -21,11 +21,13 @@
       }
 
       &-photo {
+        overflow: hidden;
+        border-radius: 20px;
+        
         @include media-breakpoint-down(lg) {
           width: 120px;
           height: 120px;
           border-radius: 18px;
-          overflow: hidden;
         }
 
         @include media-breakpoint-down(md) {
