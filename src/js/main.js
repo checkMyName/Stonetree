@@ -1,4 +1,6 @@
 import 'svgxuse';
+
+import "../../node_modules/inputmask/dist/jquery.inputmask.js";
 import regularPage from './pages/regular';
 import homePage from "./pages/home";
 

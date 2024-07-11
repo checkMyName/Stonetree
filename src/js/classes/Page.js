@@ -22,6 +22,7 @@ import { phoneMask } from '../components/phoneMask';
 import { sectionAnimation } from '../components/sectionAnimation';
 import { sqrtDropdown } from '../components/sqrtDropdown';
 import { emailMask } from '../components/emailMask';
+import { phoneMask2 } from '../components/phoneMask2';
 const {merge} = $data;
 
 export default class Page extends Model {
@@ -169,7 +170,8 @@ export default class Page extends Model {
 				.addComponent(catalogFunctional)
 				.addComponent(controlls)
 				.addComponent(shareFunctional)
-				.addComponent(phoneMask)
+				// .addComponent(phoneMask)
+				.addComponent(phoneMask2)
 				// .addComponent(emailMask)
 				.addComponent(sqrtDropdown)
 				// .addComponent(sectionAnimation)

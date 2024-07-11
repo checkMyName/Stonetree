@@ -28,10 +28,12 @@ const galleryOpenerSelector = '.js-gallery-opener';
 const galleryOpenerMainSelector = '.js-gallery-opener-main';
 
 const dataTabIndex = 'data-tab-index';
+const dataItemIndex = 'data-item-index';
+const dataSwiperSlideIndex = 'data-swiper-slide-index';
 
 export function gallerySlider() {
 
-  // let allowClick = null;
+  let allowClick = null;
 
   let currentItem = `${galleryTabItemSelector}.is-current`;
 
@@ -113,25 +115,19 @@ export function gallerySlider() {
           })
         },
 
-        // touchStart: function () {
-        //   allowClick = true;
+        touchStart: function () {
+          allowClick = true;
+        },
 
-        //   console.log(allowClick);
-        //   console.log('2');
-        // },
+        touchMove: function () {
+          allowClick = false;
+        },
 
-        // touchMove: function () {
-        //   allowClick = false;
-
-        //   console.log(allowClick);
-        //   console.log('2');
-        // },
-
-        // touchEnd: function () {
-        //   setTimeout(function () {
-        //     allowClick = true;
-        //   }, 100);
-        // },
+        touchEnd: function () {
+          setTimeout(function () {
+            allowClick = true;
+          }, 100);
+        },
       }
     })
   }
@@ -170,6 +166,8 @@ export function gallerySlider() {
   const tabsClickHandler = event => {
     const target = event.target.closest(galleryControllsItemSelector);
 
+    if (!target) return;
+
     const tabIndex = attr(target, dataTabIndex);
 
     clearControllsClasses()
@@ -182,25 +180,32 @@ export function gallerySlider() {
     currentItem = `${galleryTabItemSelector}.is-current`;
 
     initSlider(currentItem);
+
   }
 
   const tabItemClickHandler = event => {
     let target = event.target;
 
-    // console.log(target);
-    
-    // if (!allowClick) return;
-
     if (event.target.closest(galleryOpenerSelector)) {
+      
       target = event.target.closest(galleryOpenerSelector);
 
-      console.log(target.parentNode);
+      const slide = get('.swiper-slide.swiper-slide-active', target.parentNode);
+      
+      // console.log(slide);
+      
+      // const currentIndex = attr(slide, dataSwiperSlideIndex)
+      const currentIndex = attr(slide, dataItemIndex)
 
       const itemSliderContent = get('.swiper-wrapper', target.parentNode).innerHTML;
 
       get(galleryModalSliderWrapperSelector).innerHTML = itemSliderContent;
 
       modalSliderElement = iniModaltSlider(galleryModalSliderSelector);
+
+      modalSliderElement.slideTo(0);
+      modalSliderElement.slideTo(currentIndex, false, false);
+      // console.log(modalSliderElement.slides.eq(currentIndex));
 
       galleryModalElement.show();
 
@@ -210,10 +215,12 @@ export function gallerySlider() {
     }
     
     if (event.target.closest(galleryOpenerMainSelector)) {
+
+      if (!allowClick) return;
+
       target = event.target.closest(galleryOpenerMainSelector);
 
-      console.log(target);
-      console.log(target.parentNode);
+      const currentIndex = attr(target, dataItemIndex);
 
       const itemSliderContent = get('.swiper-wrapper', target.parentNode.parentNode).innerHTML;
 
@@ -221,14 +228,15 @@ export function gallerySlider() {
 
       modalSliderElement = iniModaltSlider(galleryModalSliderSelector);
 
+      modalSliderElement.slideTo(0);
+      modalSliderElement.slideTo(currentIndex, false, false);
+
       galleryModalElement.show();
 
       currentPage.components.lazyLoad.init();
 
       return;
     }
-    
-    
   }
 
   return new Component({

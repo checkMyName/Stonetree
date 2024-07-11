@@ -54,29 +54,34 @@
         }
       }
 
-      .mask__switcher-item {
-        padding-left: 8px;
-        padding-right: 8px;
+      // .mask__switcher-item {
+      //   padding-left: 8px;
+      //   padding-right: 8px;
 
-        .svg-icon {
-          @include media-breakpoint-down(lg) {
-            width: 14px;
-            height: 10px;
-          }
+      //   .svg-icon {
+      //     @include media-breakpoint-down(lg) {
+      //       width: 14px;
+      //       height: 10px;
+      //     }
+      //   }
+      // }
+
+      .iti__country-name {
+        @include media-breakpoint-down(lg) {
+          font-size: 9px;
+          margin-right: 4px;
         }
+      }
 
-        .country {
-          @include media-breakpoint-down(lg) {
-            font-size: 10px;
-            margin-left: 4px;
-            margin-right: 4px;
-          }
+      .iti__dial-code {
+        @include media-breakpoint-down(lg) {
+          font-size: 9px;
         }
+      }
 
-        .start {
-          @include media-breakpoint-down(lg) {
-            font-size: 9px;
-          }
+      .iti__flag-box {
+        @include media-breakpoint-down(lg) {
+          margin-right: 4px;
         }
       }
     }

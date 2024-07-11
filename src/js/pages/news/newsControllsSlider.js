@@ -76,7 +76,7 @@ export function newsControllsSlider() {
           touchEnd: function () {
             setTimeout(function () {
               allowClick = true;
-            }, 100);
+            }, 20);
           },
         }
       })

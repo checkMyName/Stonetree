@@ -65,8 +65,8 @@ section.section-bg-more-white.card__gallery.js-gallery
                     +icon('picture')
                     span.js-gallery-slider-counter 17
                   .swiper-wrapper
-                    each slide in gallerySliderInterierSlides
-                      .swiper-slide.js-gallery-opener-main
+                    each slide, i in gallerySliderInterierSlides
+                      div(data-item-index=i).swiper-slide.js-gallery-opener-main
                         .gallery__slider-item
 
                           +lazyImage({
@@ -85,8 +85,8 @@ section.section-bg-more-white.card__gallery.js-gallery
               .gallery__slider-thumb
                 .swiper.js-gallery-thumb.h-100
                   .swiper-wrapper
-                    each slide in gallerySliderInterierSlides
-                      .swiper-slide
+                    each slide, i in gallerySliderInterierSlides
+                      div(data-item-index=i).swiper-slide
                         .gallery__slider-thumb-item
 
                           +lazyImage({
@@ -105,8 +105,8 @@ section.section-bg-more-white.card__gallery.js-gallery
                     +icon('picture')
                     span.js-gallery-slider-counter 17
                   .swiper-wrapper
-                    each slide in gallerySliderExterierSlides
-                      .swiper-slide.js-gallery-opener-main
+                    each slide, i in gallerySliderExterierSlides
+                      div(data-item-index=i).swiper-slide.js-gallery-opener-main
                         .gallery__slider-item
                           +lazyImage({
                             imageSrc: slide.imgUrl,
@@ -123,9 +123,9 @@ section.section-bg-more-white.card__gallery.js-gallery
               .gallery__slider-thumb
                 .swiper.js-gallery-thumb.h-100
                   .swiper-wrapper
-                    each slide in gallerySliderExterierSlides
+                    each slide, i in gallerySliderExterierSlides
                       .swiper-slide
-                        .gallery__slider-thumb-item
+                        div(data-item-index=i).gallery__slider-thumb-item
                           +lazyImage({
                             imageSrc: slide.imgUrl,
                             type: 'background',

@@ -2,6 +2,7 @@
 
 .header {
   // @include transition;
+  transition: background .3s ease-in-out;
 
   position: fixed;
   top: 0;
@@ -72,10 +73,12 @@
     }
 
     .header__menu {
-      transform: translateY(0);
+      // transform: translateY(0);
       user-select: auto;
       pointer-events: auto;
       opacity: 1;
+      // max-height: 500px;
+      height: 345px;
     }
 
     .header__phone {
@@ -267,7 +270,8 @@
   }
 
   &__menu {
-    @include transition;
+    // @include transition;
+    transition: all .3s ease-in-out;
 
     position: absolute;
     top: 100%;
@@ -277,9 +281,12 @@
     padding-bottom: 20px;
     border-radius: 0px 0px 25px 25px;
     background-color: get($colors, white);
-    transform: translateY(-100%);
+    // transform: translateY(-100%);
     user-select: none;
     pointer-events: none;
+    // max-height: 0;
+    height: 0;
+    overflow: hidden;
     opacity: 0;
     z-index: 10;
 

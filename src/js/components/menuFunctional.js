@@ -93,6 +93,12 @@ export function menuFunctional() {
 
       $events.add('scroll', window, headerStatusHandler)
 
+      $events.resize('on', () => {
+        if(window.innerWidth >= 992) {
+          menuClose();
+        }
+      })
+
       $events.delegate
         .on('click', headerMenuButtonSelector, menuClickHandler)
         .on('click', headerMenuLinkSelector, anchorClickHandler)
