@@ -48,7 +48,7 @@ export function gallerySlider() {
       modules: [Thumbs, Navigation],
       spaceBetween: 8,
       slidesPerView: 1,
-      loop: true,
+      // loop: true,
 
       // breakpoints: {
       //   320: {
@@ -71,7 +71,7 @@ export function gallerySlider() {
         slideThumbActiveClass: active,
         autoScrollOffset: 1,
         swiper: new Swiper(`${currentItem} ${galleryThumbSelector}`, {
-          loop: true,
+          // loop: true,
 
           breakpoints: {
             320: {
@@ -136,7 +136,7 @@ export function gallerySlider() {
     return new Swiper(selector, {
       modules: [Navigation, Pagination],
       slidesPerView: 1,
-      loop: true,
+      // loop: true,
 
       navigation: {
         nextEl: '.slider__navigation-button-next',
